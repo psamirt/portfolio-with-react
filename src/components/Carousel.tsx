@@ -31,7 +31,7 @@ const Carousel: React.FC = () => {
 	}
 
 	return (
-		<div className='max-w-[850px] h-[650px] w-[850px] m-auto py-16 px-4 relative group'>
+		<div className='max-w-[850px] h-[350px] w-[450px] lg:h-[650px] lg:w-[750px] m-auto py-16 px-4 relative group'>
 			<div
 				style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
 				className='w-full h-full rounded-2xl bg-center bg-cover duration-500'
