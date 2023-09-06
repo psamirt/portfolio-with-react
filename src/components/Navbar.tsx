@@ -14,9 +14,9 @@ const Navbar: React.FC = () => {
 				<div onClick={() => setNav(!nav)} className='cursor-pointer '>
 					<AiOutlineMenu size={30} />
 				</div>
-				<NavLink to='/' className='text-2xl sm:text-3xl lg:text-4xl px-2'>
+				<h1 className='text-2xl sm:text-3xl lg:text-4xl px-2'>
 					Paolo <span className='font-bold'>Tello</span>
-				</NavLink>
+				</h1>
 				<div className='hidden lg:flex items-center bg-white text-black rounded-full p-1 text-[14px] font-bold'>
 					<p>Front-end Developer</p>
 				</div>
@@ -27,7 +27,7 @@ const Navbar: React.FC = () => {
 			<nav className='flex-col text-white-800 '>
 				<ul className='text-xl flex '>
 					<NavLink
-						to={'/about'}
+						to={'/'}
 						className='text-xl mx-6 px-3'
 					>
 						Acerca de mi
@@ -91,7 +91,7 @@ const Navbar: React.FC = () => {
 				</NavLink>
 				<nav>
 					<ul className='flex-col px-4 py-4 text-white-800'>
-						<NavLink to='/about' className='text-xl py-4 flex'>
+						<NavLink to='/' className='text-xl py-4 flex'>
 							{' '}
 							Acerca de mi{' '}
 						</NavLink>
