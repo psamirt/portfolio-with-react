@@ -7,6 +7,6 @@
         @apply border-white rounded-xl px-5 py-1
     }
     body {
-        @apply bg-zinc-900 text-white
+        @apply bg-zinc-900 text-white font-roboto 
     }
 }

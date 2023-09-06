@@ -17,7 +17,7 @@ const Navbar: React.FC = () => {
 				<NavLink to='/' className='text-2xl sm:text-3xl lg:text-4xl px-2'>
 					Paolo <span className='font-bold'>Tello</span>
 				</NavLink>
-				<div className='hidden lg:flex items-center bg-white text-black rounded-full p-1 text-[14px]'>
+				<div className='hidden lg:flex items-center bg-white text-black rounded-full p-1 text-[14px] font-bold'>
 					<p>Front-end Developer</p>
 				</div>
 			</div>
@@ -28,19 +28,19 @@ const Navbar: React.FC = () => {
 				<ul className='text-xl flex '>
 					<NavLink
 						to={'/about'}
-						className='text-xl mx-6 bg-white text-black rounded-full px-3'
+						className='text-xl mx-6 px-3'
 					>
 						Acerca de mi
 					</NavLink>
 					<NavLink
 						to={'/projects'}
-						className='text-xl mx-6 bg-white text-black rounded-full px-3'
+						className='text-xl mx-6 px-3'
 					>
 						Proyectos
 					</NavLink>
 					<NavLink
 						to={'/contact'}
-						className='text-xl mx-6 bg-white text-black rounded-full px-3'
+						className='text-xl mx-6 px-3'
 					>
 						Contacto
 					</NavLink>
