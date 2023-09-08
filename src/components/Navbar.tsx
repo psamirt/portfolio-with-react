@@ -28,19 +28,19 @@ const Navbar: React.FC = () => {
 				<ul className='text-xl flex '>
 					<NavLink
 						to={'/'}
-						className='text-xl mx-6 px-3'
+						className='text-xl mx-6 px-3 hover:translate-y-[0.5px]'
 					>
 						Acerca de mi
 					</NavLink>
 					<NavLink
 						to={'/projects'}
-						className='text-xl mx-6 px-3'
+						className='text-xl mx-6 px-3 hover:translate-y-[0.5px]'
 					>
 						Proyectos
 					</NavLink>
 					<NavLink
 						to={'/contact'}
-						className='text-xl mx-6 px-3'
+						className='text-xl mx-6 px-3 hover:translate-y-[0.5px]'
 					>
 						Contacto
 					</NavLink>
@@ -51,7 +51,7 @@ const Navbar: React.FC = () => {
 			<a
 				href='CV-Samir.pdf'
 				download
-				className='bg-white text-black hidden md:flex items-center px-3 rounded-full'
+				className='bg-slate-50 text-black hidden md:flex items-center px-3 rounded-full hover:bg-slate-300 hover:translate-y-[0.5px]'
 			>
 				<BsDownload size={20} className='mr-2' />
 				CV
@@ -84,22 +84,22 @@ const Navbar: React.FC = () => {
 					size={30}
 					className='absolute right-4 top-4 cursor-pointer'
 				/>
-				<NavLink to='/'>
+				<h1>
 					<h2 className='text-2xl p-4 m-2'>
 						Paolo <span className='font-bold'>Tello</span>
 					</h2>
-				</NavLink>
+				</h1>
 				<nav>
-					<ul className='flex-col px-4 py-4 text-white-800'>
-						<NavLink to='/' className='text-xl py-4 flex'>
+					<ul className='flex-col px-4 py-4 text-white-800 '>
+						<NavLink to='/' className='text-xl py-4 flex hover:translate-y-[0.5px]'>
 							{' '}
 							Acerca de mi{' '}
 						</NavLink>
-						<NavLink to='/projects' className='text-xl py-4 flex'>
+						<NavLink to='/projects' className='text-xl py-4 flex hover:translate-y-[0.5px]'>
 							{' '}
 							Proyectos{' '}
 						</NavLink>
-						<NavLink to='/contact' className='text-xl py-4 flex'>
+						<NavLink to='/contact' className='text-xl py-4 flex hover:translate-y-[0.5px]'>
 							{' '}
 							Contacto{' '}
 						</NavLink>
