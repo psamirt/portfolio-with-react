@@ -48,14 +48,14 @@ const Contact = (): JSX.Element => {
 
 	return (
 		<div className='py-8'>
-			<section className='max-w-2xl mx-auto p-6 bg-white shadow-md rounded-lg'>
-				<h3 className='text-2xl font-semibold text-center text-black'>
+			<section className='max-w-2xl mx-auto p-6  bg-black bg-opacity-75 shadow-md rounded-lg'>
+				<h3 className='text-2xl font-semibold text-center'>
 					{' '}
 					<span>Contactame</span>
 				</h3>
 				<form onSubmit={handleSubmit}>
 					<div className='mb-4'>
-						<label htmlFor='name' className='block text-gray-700'>
+						<label htmlFor='name' className='block'>
 							Nombre
 						</label>
 						<input
@@ -64,11 +64,12 @@ const Contact = (): JSX.Element => {
 							name='name'
 							value={formData.name}
 							onChange={handleChange}
-							className='w-full px-4 py-2 mt-2 border text-black border-gray-300 rounded-md focus:outline-none focus:border-blue-500'
+							className='w-full px-4 py-2 mt-2 border  border-gray-300 rounded-md focus:outline-none focus:border-blue-500'
+							style={{background:'rgba(0, 0, 0, 0.5)'}}
 						/>
 					</div>
 					<div className='mb-4'>
-						<label htmlFor='email' className='block text-gray-700'>
+						<label htmlFor='email' className='block text-white'>
 							Correo electrónico
 						</label>
 						<input
@@ -77,11 +78,12 @@ const Contact = (): JSX.Element => {
 							name='email'
 							value={formData.email}
 							onChange={handleChange}
-							className='w-full px-4 py-2 mt-2 border text-black border-gray-300 rounded-md focus:outline-none focus:border-blue-500'
+							className='w-full px-4 py-2 mt-2 border  border-gray-300 rounded-md focus:outline-none focus:border-blue-500'
+							style={{background:'rgba(0, 0, 0, 0.5)'}}
 						/>
 					</div>
 					<div className='mb-4'>
-						<label htmlFor='message' className='block text-gray-700'>
+						<label htmlFor='message' className='block'>
 							Mensaje
 						</label>
 						<textarea
@@ -91,15 +93,16 @@ const Contact = (): JSX.Element => {
 							onChange={handleChange}
 							cols={30}
 							rows={6}
-							className='w-full px-4 py-2 mt-2 border text-black border-gray-300 rounded-md resize-none focus:outline-none focus:border-blue-500'
+							className='w-full px-4 py-2 mt-2 border  border-gray-300 rounded-md resize-none focus:outline-none focus:border-blue-500'
+							style={{background:'rgba(0, 0, 0, 0.5)'}}
 						></textarea>
 					</div>
 					<button
 						type='submit'
-						className={`w-full px-4 py-2 text-white rounded-md focus:outline-none ${
+						className={`w-full px-4 py-2 font-bold rounded-md focus:outline-none ${
 							disable
-								? 'bg-gray-300 cursor-not-allowed'
-								: 'bg-blue-500 hover:bg-blue-600'
+								? 'bg-gray-300 cursor-not-allowed text-black'
+								: 'bg-blue-500 hover:bg-blue-600 text-white'
 						}`}
 						disabled={disable}
 					>

@@ -11,7 +11,7 @@ const Navbar: React.FC = () => {
 			{/* left side */}
 
 			<div className='flex items-center'>
-				<div onClick={() => setNav(!nav)} className='cursor-pointer '>
+				<div onClick={() => setNav(!nav)} className='cursor-pointer block lg:hidden'>
 					<AiOutlineMenu size={30} />
 				</div>
 				<h1 className='text-2xl sm:text-3xl lg:text-4xl px-2'>
@@ -28,19 +28,19 @@ const Navbar: React.FC = () => {
 				<ul className='text-xl flex '>
 					<NavLink
 						to={'/'}
-						className='text-xl mx-6 px-3 hover:translate-y-[0.5px]'
+						className='hidden lg:flex text-xl mx-6 px-3 hover:translate-y-[0.5px]'
 					>
 						Acerca de mi
 					</NavLink>
 					<NavLink
 						to={'/projects'}
-						className='text-xl mx-6 px-3 hover:translate-y-[0.5px]'
+						className='hidden lg:flex text-xl mx-6 px-3 hover:translate-y-[0.5px]'
 					>
 						Proyectos
 					</NavLink>
 					<NavLink
 						to={'/contact'}
-						className='text-xl mx-6 px-3 hover:translate-y-[0.5px]'
+						className='hidden lg:flex text-xl mx-6 px-3 hover:translate-y-[0.5px]'
 					>
 						Contacto
 					</NavLink>
@@ -75,7 +75,7 @@ const Navbar: React.FC = () => {
 			<div
 				className={
 					nav
-						? 'fixed top-0 left-0 w-[300px] h-screen bg-black z-10 duration-300'
+						? 'fixed top-0 left-0 w-[300px] h-screen bg-slate-900 z-10 duration-300'
 						: 'fixed top-0 left-[-100%] w-[300px] h-screen bg-black z-10 duration-300'
 				}
 			>
@@ -90,20 +90,28 @@ const Navbar: React.FC = () => {
 					</h2>
 				</h1>
 				<nav>
-					<ul className='flex-col px-4 py-4 text-white-800 '>
-						<NavLink to='/' className='text-xl py-4 flex hover:translate-y-[0.5px]'>
+					<ul className='flex-col px-4 py-4 text-white-800'>
+						<NavLink to='/' className='text-xl py-4 flex justify-center  hover:translate-y-[0.5px]'>
 							{' '}
 							Acerca de mi{' '}
 						</NavLink>
-						<NavLink to='/projects' className='text-xl py-4 flex hover:translate-y-[0.5px]'>
+						<NavLink to='/projects' className='text-xl py-4 flex justify-center  hover:translate-y-[0.5px]'>
 							{' '}
 							Proyectos{' '}
 						</NavLink>
-						<NavLink to='/contact' className='text-xl py-4 flex hover:translate-y-[0.5px]'>
+						<NavLink to='/contact' className='text-xl py-4 flex justify-center  hover:translate-y-[0.5px]'>
 							{' '}
 							Contacto{' '}
 						</NavLink>
 					</ul>
+					<a
+				href='CV-Samir.pdf'
+				download
+				className='bg-slate-50 text-black flex lg:hidden items-center mx-auto w-[70px] px-3 rounded-full hover:bg-slate-300 hover:translate-y-[0.5px]'
+			>
+				<BsDownload size={20} className='mr-2' />
+				CV
+			</a>
 				</nav>
 			</div>
 		</div>

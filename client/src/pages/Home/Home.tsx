@@ -1,13 +1,16 @@
 import Carousel from '../../components/Carousel'
 
 const Home = (): JSX.Element => {
-	return (
-		<div className='flex w-full h-full p-8 items-center justify-evenly'>
+	return  (
+		<div className='flex flex-col lg:flex-row w-full h-full p-4 lg:p-8 items-center lg:justify-evenly'>
 		  {/* Contenedor de la tarjeta de presentación */}
-		  <figure className='flex rounded-xl p-8'>
-			<div className='max-w-2xl text-center items-center flex p-2'>
-			  <img src="imagenes/foto.png" alt="foto" className='w-48 h-48 rounded-full mx-auto mt-4' />
-			  <div className='pt-6 text-center space-y-4'>
+			<div className='max-w-md lg:max-w-lg text-center flex-col p-2'>
+			  <img
+				src="imagenes/foto.png"
+				alt="foto"
+				className='h-36 lg:h-48 rounded-full mt-4 float-left'
+			  />
+			  <div className='pt-4 lg:pt-6 text-center space-y-2 lg:space-y-4'>
 				<p className='text-sm md:text-base lg:text-xl font-special'>
 				  Soy un desarrollador Front-end con sólida base en tecnologías clave
 				  como JavaScript, Node.js, HTML, CSS, Bootstrap, Tailwind y Next.js.
@@ -17,13 +20,12 @@ const Home = (): JSX.Element => {
 				</p>
 			  </div>
 			</div>
-		  </figure>
 		  {/* Carrusel de imágenes */}
-		  <div>
+		  <div className='mt-4 lg:mt-0'>
 			<Carousel />
 		  </div>
 		</div>
-	  )
+	  );
 	}
 
 

@@ -17,7 +17,7 @@ const Projects = (): JSX.Element => {
 			{/* Algo Grill */}
 			<div className='items-center flex flex-col'>
 				<div className='hover:scale-[1.02] ease-in duration-300 '>
-					<figure className='rounded-lg shadow-lg p-6 w-[300px] h-[510px] bg-red-950 bg-opacity-75 m-6 ring-4 ring-white'>
+					<figure className='rounded-lg shadow-lg p-6 w-[300px] h-[510px] bg-black bg-opacity-75 m-6 ring-4 ring-white'>
 						<div className='mb-4'>
 							<img
 								src='imagenes/algoGrill.png'
@@ -80,7 +80,7 @@ const Projects = (): JSX.Element => {
 			{/* gamerzone */}
 			<div className='items-center flex flex-col'>
 			<div className='hover:scale-[1.02] ease-in duration-300 '>
-					<figure className='rounded-lg shadow-lg p-6 w-[300px] h-[510px] bg-red-950 bg-opacity-75 m-6 ring-4 ring-white'>
+					<figure className='rounded-lg shadow-lg p-6 w-[300px] h-[510px] bg-black bg-opacity-75 m-6 ring-4 ring-white'>
 						<div className='mb-4'>
 							<img
 								src='imagenes/homePageGZ.png'
@@ -147,7 +147,7 @@ const Projects = (): JSX.Element => {
 			{/* ReStore */}
 			<div className='items-center flex flex-col'>
 			<div className='hover:scale-[1.02] ease-in duration-300 '>
-					<figure className='rounded-lg shadow-lg p-6 w-[300px] h-[510px] bg-red-950 bg-opacity-75 m-6 ring-4 ring-white'>
+					<figure className='rounded-lg shadow-lg p-6 w-[300px] h-[510px] bg-black bg-opacity-75 m-6 ring-4 ring-white'>
 						<div className='mb-4'>
 							<img
 								src='imagenes/restore.png'
