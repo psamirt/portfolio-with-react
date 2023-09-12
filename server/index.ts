@@ -5,10 +5,19 @@ require('dotenv').config();
 const { PORT } = process.env;
 const cors = require('cors');
 
-const corsOption = {
-  origin: 'https://portfolio-paolo-tello-seven.vercel.app'
-};
-app.use(cors(corsOption));
+const whitelist = ['https://portfolio-paolo-tello-seven.vercel.app'];
+
+const corsOptions = {
+    origin: function (origin: string, callback: (error: Error | null, allow?: boolean) => void) {
+      if (whitelist.indexOf(origin) !== -1 || !origin) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
+  };
+
+app.use(cors(corsOptions));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
