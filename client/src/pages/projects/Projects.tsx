@@ -26,7 +26,7 @@ const Projects = (): JSX.Element => {
 							/>
 						</div>
 						<div className='mb-4'>
-							<h1 className='text-xl font-bold font-special text-center'>
+							<h1 className='text-xl font-bold font-roboto text-center'>
 								Algo Grill
 							</h1>
 							<p className=' text-center italic'>
@@ -35,7 +35,7 @@ const Projects = (): JSX.Element => {
 							</p>
 						</div>
 						<div>
-							<h3 className='text-xl font-semibold mb-2 font-special text-center'>
+							<h3 className='text-xl font-semibold mb-2 font-roboto text-center'>
 								Tecnologías Aplicadas
 							</h3>
 							<ul className='flex items-center justify-center space-x-4 flex-wrap'>
@@ -89,7 +89,7 @@ const Projects = (): JSX.Element => {
 							/>
 						</div>
 						<div className='mb-4'>
-							<h1 className='text-xl font-bold font-special text-center'>
+							<h1 className='text-xl font-bold font-roboto text-center'>
 								Gamer Zone
 							</h1>
 							<p className=' text-center italic'>
@@ -98,7 +98,7 @@ const Projects = (): JSX.Element => {
 							</p>
 						</div>
 						<div>
-							<h3 className='text-xl font-semibold mb-2 font-special text-center'>
+							<h3 className='text-xl font-semibold mb-2 font-roboto text-center'>
 								Tecnologías Aplicadas
 							</h3>
 							<ul className='flex items-center justify-center space-x-4 flex-wrap'>
@@ -156,7 +156,7 @@ const Projects = (): JSX.Element => {
 							/>
 						</div>
 						<div className='mb-4'>
-							<h1 className='text-xl font-bold font-special text-center'>
+							<h1 className='text-xl font-bold font-roboto text-center'>
 								ReStore
 							</h1>
 							<p className=' text-center italic'>
@@ -165,7 +165,7 @@ const Projects = (): JSX.Element => {
 							</p>
 						</div>
 						<div>
-							<h3 className='text-xl font-semibold mb-2 font-special text-center'>
+							<h3 className='text-xl font-semibold mb-2 font-roboto text-center'>
 								Tecnologías Aplicadas
 							</h3>
 							<ul className='flex items-center justify-center space-x-4 flex-wrap'>

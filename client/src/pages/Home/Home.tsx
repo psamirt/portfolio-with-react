@@ -11,7 +11,7 @@ const Home = (): JSX.Element => {
 				className='h-36 lg:h-48 rounded-full mt-4 float-left'
 			  />
 			  <div className='pt-4 lg:pt-6 text-center space-y-2 lg:space-y-4'>
-				<p className='text-sm md:text-base lg:text-xl font-special'>
+				<p className='text-sm md:text-base lg:text-xl font-roboto'>
 				  Soy un desarrollador Front-end con sólida base en tecnologías clave
 				  como JavaScript, Node.js, HTML, CSS, Bootstrap, Tailwind y Next.js.
 				  Comprometido con la excelencia, habituado a trabajar con tecnologías
