@@ -27,7 +27,7 @@ const Contact = (): JSX.Element => {
 	const handleSubmit = async (e: React.FormEvent) => {
 		e.preventDefault()
 		try {
-			const response = await axios.post('http://localhost:3000/send', formData)
+			const response = await axios.post('https://email-service-piak.onrender.com', formData)
 			console.log('Respuesta del servidor', response.data)
 			Swal.fire({
 				title: 'Gracias',
