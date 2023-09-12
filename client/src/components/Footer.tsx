@@ -1,7 +1,7 @@
 import { AiFillLinkedin, AiFillGithub,AiOutlineWhatsApp } from 'react-icons/ai'
 const Footer = () => {
 	return (
-	  <footer className="absolute bottom-0 left-0 right-0 text-center py-2">
+	  <footer className="bg-slate-900 w-full absolute bottom-1 mt-auto ">
 		<hr className="my-2" />
 		<ul className="flex justify-evenly">
 		  <a className="flex flex-col items-center"

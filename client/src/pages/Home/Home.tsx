@@ -4,7 +4,7 @@ const Home = (): JSX.Element => {
 	return  (
 		<div className='flex flex-col lg:flex-row w-full h-full p-4 lg:p-8 items-center lg:justify-evenly'>
 		  {/* Contenedor de la tarjeta de presentación */}
-			<div className='max-w-md lg:max-w-lg text-center flex-col p-2'>
+			<div className='max-w-xs lg:max-w-lg text-center flex-col p-2 '>
 			  <img
 				src="imagenes/foto.png"
 				alt="foto"
