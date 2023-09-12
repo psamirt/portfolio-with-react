@@ -1,9 +1,9 @@
-import React, { useState, } from 'react'
+import React, { useState } from 'react'
 import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs'
 import { RxDotFilled } from 'react-icons/rx'
 
 const Carousel: React.FC = () => {
-	const slides =  [
+	const slides = [
 		{ url: 'imagenes/algoGrill.png' },
 		{ url: 'imagenes/algoGrillResponsive.png' },
 		{ url: 'imagenes/gzForm.png' },
@@ -32,12 +32,10 @@ const Carousel: React.FC = () => {
 
 	return (
 		<div className='max-w-[850px] h-[350px] w-[450px] flex-col lg:flex-col lg:h-[550px] lg:w-[550px] mx-auto py-16 px-4 relative group'>
-			<img
-				src={slides[currentIndex].url}
-				alt={`Slide ${currentIndex}`}
+			<div
+				style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
 				className='w-full h-full rounded-2xl bg-center bg-cover duration-500'
-				loading='lazy' // Aplicar lazy loading aquí
-			/>
+			></div>
 			{/* flecha izquierda */}
 			<div className='hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] left-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer'>
 				<BsChevronCompactLeft onClick={prevSlide} size={30} />
