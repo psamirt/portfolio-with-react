@@ -3,18 +3,19 @@ import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai'
 import { BsDownload } from 'react-icons/bs'
 import { NavLink } from 'react-router-dom'
 
+
 const Navbar: React.FC = () => {
 	const [nav, setNav] = useState(false)
 
 	return (
-		<div className='max-w-[1640px] mx-auto flex justify-between items-center p-4'>
+		<div className='max-w-[1640px] mx-auto flex justify-between items-center p-4 '>
 			{/* left side */}
 
 			<div className='flex items-center'>
-				<div onClick={() => setNav(!nav)} className='cursor-pointer block lg:hidden'>
+				<div onClick={() => setNav(!nav)} className='cursor-pointer block lg:hidden fixed'>
 					<AiOutlineMenu size={30} />
 				</div>
-				<h1 className='text-2xl sm:text-3xl lg:text-4xl px-2'>
+				<h1 className='text-2xl ml-7 sm:text-3xl lg:text-4xl px-2'>
 					Paolo <span className='font-bold'>Tello</span>
 				</h1>
 				<div className='hidden lg:flex items-center bg-white text-black rounded-full p-1 text-[14px] font-bold'>
@@ -26,24 +27,24 @@ const Navbar: React.FC = () => {
 
 			<nav className='flex-col text-white-800 '>
 				<ul className='text-xl flex '>
-					<NavLink
-						to={'/'}
+					<a
+						href=''
 						className='hidden lg:flex text-xl mx-6 px-3 hover:translate-y-[0.5px]'
 					>
 						Acerca de mi
-					</NavLink>
-					<NavLink
-						to={'/projects'}
+					</a>
+					<a
+						href='#projects'
 						className='hidden lg:flex text-xl mx-6 px-3 hover:translate-y-[0.5px]'
 					>
 						Proyectos
-					</NavLink>
-					<NavLink
-						to={'/contact'}
+					</a>
+					<a
+						href='#contact'
 						className='hidden lg:flex text-xl mx-6 px-3 hover:translate-y-[0.5px]'
 					>
 						Contacto
-					</NavLink>
+					</a>
 				</ul>
 			</nav>
 
@@ -91,18 +92,18 @@ const Navbar: React.FC = () => {
 				</h1>
 				<nav>
 					<ul className='flex-col px-4 py-4 text-white-800'>
-						<NavLink to='/' className='text-xl py-4 flex justify-center  hover:translate-y-[0.5px]'>
+						<a href='' className='text-xl py-4 flex justify-center  hover:translate-y-[0.5px]'>
 							{' '}
 							Acerca de mi{' '}
-						</NavLink>
-						<NavLink to='/projects' className='text-xl py-4 flex justify-center  hover:translate-y-[0.5px]'>
+						</a>
+						<a href='#projects' className='text-xl py-4 flex justify-center  hover:translate-y-[0.5px]'>
 							{' '}
 							Proyectos{' '}
-						</NavLink>
-						<NavLink to='/contact' className='text-xl py-4 flex justify-center  hover:translate-y-[0.5px]'>
+						</a>
+						<a href='#contact' className='text-xl py-4 flex justify-center  hover:translate-y-[0.5px]'>
 							{' '}
 							Contacto{' '}
-						</NavLink>
+						</a>
 					</ul>
 					<a
 				href='CV-Samir.pdf'

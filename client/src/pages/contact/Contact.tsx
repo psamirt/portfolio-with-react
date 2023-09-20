@@ -47,8 +47,8 @@ const Contact = (): JSX.Element => {
 	}
 
 	return (
-		<div className='py-8'>
-			<section className='max-w-2xl mx-auto p-6  bg-black bg-opacity-75 shadow-md rounded-lg'>
+		<div className='py-8 h-[100vh] flex'>
+			<section className='max-w-2xl mx-auto my-auto p-6  bg-black bg-opacity-75 shadow-md rounded-lg'>
 				<h3 className='text-2xl font-semibold text-center'>
 					{' '}
 					<span>Contactame</span>

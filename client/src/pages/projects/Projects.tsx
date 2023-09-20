@@ -15,7 +15,7 @@ import { SiNextdotjs } from 'react-icons/si'
 
 const Projects = (): JSX.Element => {
 	return (
-		<div className='max-w-[1640px] mx-auto flex flex-col md:flex-row justify-between items-center p-4 flex-wrap '>
+		<div className='max-w-[1640px] h-full min-h-100v mx-auto my-5 flex flex-col md:flex-row justify-between items-center p-4 flex-wrap'>
 			{/* Algo Grill */}
 			<div className='items-center flex flex-col'>
 				<div className='hover:scale-[1.02] ease-in duration-300 '>
@@ -268,14 +268,7 @@ const Projects = (): JSX.Element => {
 				</div>
 				<div className='items-center flex justify-evenly w-full'>
 					<a
-						href='https://re-store-six.vercel.app/'
-						target='_blank'
-						className=' bg-white rounded-full text-black font-bold p-2 hover:translate-y-[0.7px] hover:bg-slate-200'
-					>
-						<span>ReStore</span>
-					</a>{' '}
-					<a
-						href='https://github.com/psamirt/ReStore'
+						href='https://github.com/psamirt/proceso-seleccion'
 						target='_blank'
 						className='hover:translate-y-[0.7px] hover:text-gray-200'
 					>
