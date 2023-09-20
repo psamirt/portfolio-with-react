@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai'
 import { BsDownload } from 'react-icons/bs'
-import { NavLink } from 'react-router-dom'
 
 
 const Navbar: React.FC = () => {
