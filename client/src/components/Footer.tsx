@@ -2,7 +2,7 @@ import { AiFillLinkedin, AiFillGithub,AiOutlineWhatsApp } from 'react-icons/ai'
 const Footer = () => {
 	return (
 	  <footer className="bg-slate-900 w-full fixed bottom-1 mb-[-5px] ">
-		<hr className="my-2" />
+		<hr className="my-2 w-[1640px]" />
 		<ul className="flex justify-evenly">
 		  <a className="flex flex-col items-center hover:translate-y-[0.7px]"
 		  href='https://www.linkedin.com/in/paolo-tello-7a1872285'

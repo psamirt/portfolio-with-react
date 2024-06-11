@@ -1,11 +1,20 @@
 import Carousel from '../../components/Carousel'
 import Contact from '../contact/Contact'
 import Projects from '../projects/Projects'
+import { motion } from 'framer-motion'
 
 const Home = (): JSX.Element => {
 	return (
 		<div>
-			<div className='flex flex-col lg:flex-row h-[100vh]  p-4 lg:p-8 items-center lg:justify-evenly'>
+			<motion.div
+				initial={{
+					opacity: 0,
+					translateX: 50,
+				}}
+				animate={{ opacity: 1, translateX: 0, translateY: 0 }}
+				transition={{ duration: 2, delay: 0.1 }}
+				className='flex flex-col lg:flex-row h-[100vh]  p-4 lg:p-8 items-center lg:justify-evenly'
+			>
 				{/* Contenedor de la tarjeta de presentación */}
 				<div className='max-w-xs lg:max-w-lg text-center flex-col p-2 '>
 					<img
@@ -28,11 +37,11 @@ const Home = (): JSX.Element => {
 				<div className='mt-4 lg:mt-0'>
 					<Carousel />
 				</div>
-			</div>
-			<hr id='projects'/>
-			<Projects></Projects>
-			<hr id='contact'/>
-			<Contact></Contact>
+			</motion.div>
+			<hr id='projects' />
+			<Projects />
+			<hr id='contact' />
+			<Contact />
 		</div>
 	)
 }
