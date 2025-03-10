@@ -26,7 +26,7 @@ const Navbar: React.FC = () => {
 
 			{/* search input */}
 
-			<nav className='flex-col text-white-800 '>
+			{/* <nav className='flex-col text-white-800 '>
 				<ul className='text-xl flex '>
 					<a
 						href=''
@@ -47,7 +47,7 @@ const Navbar: React.FC = () => {
 						Contacto
 					</a>
 				</ul>
-			</nav>
+			</nav> */}
 
 			{/* download button */}
 			<a

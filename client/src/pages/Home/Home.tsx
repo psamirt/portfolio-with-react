@@ -24,15 +24,27 @@ const Home = (): JSX.Element => {
 
 		tl.to(cardRef.current, {
 			x: -1000,
-			opacity: 1,
+			opacity: 0,
 			duration: 5,
+			onStart: () => {
+				gsap.set(cardRef.current, { zIndex: 10 })
+			},
+			onReverseComplete: () => {
+				gsap.set(cardRef.current, { zIndex: 20 })
+			},
 		})
 			.to(
 				carouselRef.current,
 				{
 					x: 1000,
-					opacity: 1,
+					opacity: 0,
 					duration: 5,
+					onStart: () => {
+						gsap.set(carouselRef.current, { zIndex: 10 })
+					},
+					onReverseComplete: () => {
+						gsap.set(carouselRef.current, { zIndex: 20 })
+					},
 				},
 				0,
 			)
@@ -41,8 +53,17 @@ const Home = (): JSX.Element => {
 				{
 					opacity: 1,
 					duration: 2,
+					onStart: () => {
+						gsap.set(projectsRef.current, { zIndex: 30 })
+					},
+					onComplete: () => {
+						gsap.set(projectsRef.current, { zIndex: 20 })
+					},
+					onReverseComplete: () => {
+						gsap.set(projectsRef.current, { zIndex: 0 })
+					},
 				},
-				'-=4',
+				'-=3',
 			)
 	}, [])
 
@@ -58,13 +79,16 @@ const Home = (): JSX.Element => {
 						<img
 							src='imagenes/foto.png'
 							alt='foto'
-							className='h-36 lg:h-48 rounded-full mt-4 float-left'
+							className='h-36 lg:h-48 rounded-full mt-4 lg:mt-0'
 						/>
 						<div className='pt-4 lg:pt-6 text-center space-y-2 lg:space-y-4'>
 							<p className='text-sm md:text-base lg:text-xl font-roboto'>
 								Soy un desarrollador Front-end con sólida base en tecnologías
 								clave como JavaScript, Node.js, HTML, CSS, Bootstrap, Tailwind y
-								Next.js...
+								Next.js. Comprometido con la excelencia, habituado a trabajar
+								con tecnologías ágiles y autodidacta. He desarrollado proyectos
+								personales y grupales demostrando creatividad y capacidad de
+								resolución de problemas.
 							</p>
 						</div>
 					</div>

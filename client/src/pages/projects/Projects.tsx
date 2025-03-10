@@ -21,7 +21,8 @@ const Projects = (): JSX.Element => {
 	const [selectedId, setSelectedId] = useState<string | null>(null)
 
 	return (
-		<div >
+		<div className=''>
+			<h1 className='text-center text-5xl'>Experiencias</h1>
 			<div className='max-w-[1640px] h-full mx-auto my-5 flex flex-col md:flex-row justify-between items-center p-4 flex-wrap'>
 				{/* Algo Grill */}
 				<div className='flex flex-col items-center'>
