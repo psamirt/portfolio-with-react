@@ -24,31 +24,6 @@ const Navbar: React.FC = () => {
 				</div>
 			</div>
 
-			{/* search input */}
-
-			{/* <nav className='flex-col text-white-800 '>
-				<ul className='text-xl flex '>
-					<a
-						href=''
-						className='hidden lg:flex text-xl mx-6 px-3 hover:translate-y-[0.5px]'
-					>
-						Acerca de mi
-					</a>
-					<a
-						href='#projects'
-						className='hidden lg:flex text-xl mx-6 px-3 hover:translate-y-[0.5px]'
-					>
-						Experiencias
-					</a>
-					<a
-						href='#contact'
-						className='hidden lg:flex text-xl mx-6 px-3 hover:translate-y-[0.5px]'
-					>
-						Contacto
-					</a>
-				</ul>
-			</nav> */}
-
 			{/* download button */}
 			<a
 				href='CV-Samir.pdf'
@@ -58,19 +33,6 @@ const Navbar: React.FC = () => {
 				<BsDownload size={20} className='mr-2' />
 				CV
 			</a>
-
-			{/* Mobile menu */}
-			{/* Overlay */}
-			{nav ? (
-				<div
-					className={
-						nav ? 'bg-black/80 fixed w-full h-screen z-10 top-0' : 'hidden'
-					}
-					onClick={() => setNav(false)}
-				></div>
-			) : (
-				''
-			)}
 
 			{/* side drawer menu */}
 			<div
@@ -91,29 +53,6 @@ const Navbar: React.FC = () => {
 					</h2>
 				</h1>
 				<nav>
-					<ul className='flex-col px-4 py-4 text-white-800'>
-						<a
-							href=''
-							className='text-xl py-4 flex justify-center  hover:translate-y-[0.5px]'
-						>
-							{' '}
-							Acerca de mi{' '}
-						</a>
-						<a
-							href='#projects'
-							className='text-xl py-4 flex justify-center  hover:translate-y-[0.5px]'
-						>
-							{' '}
-							Proyectos{' '}
-						</a>
-						<a
-							href='#contact'
-							className='text-xl py-4 flex justify-center  hover:translate-y-[0.5px]'
-						>
-							{' '}
-							Contacto{' '}
-						</a>
-					</ul>
 					<a
 						href='CV-Samir.pdf'
 						download
