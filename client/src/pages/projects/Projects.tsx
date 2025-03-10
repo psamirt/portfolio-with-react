@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useState } from 'react'
 import {
 	BiLogoTypescript,
 	BiLogoReact,
@@ -19,68 +19,35 @@ import { AnimatePresence, motion } from 'framer-motion'
 
 const Projects = (): JSX.Element => {
 	const [selectedId, setSelectedId] = useState<string | null>(null)
-	const [isVisible, setIsVisible] = useState(false)
-	const ref = useRef<HTMLDivElement | null>(null)
 
-	useEffect(() => {
-		const observer = new IntersectionObserver(
-			entries => {
-				entries.forEach(entry => {
-					if (entry.isIntersecting) {
-						setIsVisible(true)
-						if (ref.current) {
-							observer.unobserve(ref.current)
-						}
-					}
-				})
-			},
-			{ threshold: 0.1 },
-		)
-		const currentRef = ref.current
-		if (currentRef) {
-			observer.observe(currentRef)
-		}
-
-		return () => {
-			if (currentRef) {
-				observer.unobserve(currentRef)
-			}
-		}
-	}, [])
 	return (
-		<>
-			<motion.div
-				ref={ref}
-				initial={{ opacity: 0, translateX: 50 }}
-				animate={isVisible ? { opacity: 1, translateX: 0, translateY: 0 } : {}}
-				transition={{ duration: 2, delay: 0.1 }}
-				className='max-w-[1640px] h-full min-h-100v mx-auto my-5 flex flex-col md:flex-row justify-between items-center p-4 flex-wrap'
-			>
+		<div >
+			<div className='max-w-[1640px] h-full mx-auto my-5 flex flex-col md:flex-row justify-between items-center p-4 flex-wrap'>
 				{/* Algo Grill */}
-				<div className='items-center flex flex-col'>
+				<div className='flex flex-col items-center'>
 					<div className='hover:scale-[1.02] ease-in duration-300 '>
 						<figure className='rounded-lg shadow-lg p-6 w-[300px] h-[510px] bg-black bg-opacity-75 m-6 ring-4 ring-white'>
 							<div className='mb-4'>
 								<img
 									src='imagenes/algoGrill.png'
 									alt='algogrill'
-									className='w-96 h-auto mx-auto'
+									className='h-auto mx-auto w-96'
 								/>
 							</div>
 							<div className='mb-4'>
-								<h1 className='text-xl font-bold font-roboto text-center'>
+								<h1 className='text-xl font-bold text-center font-roboto'>
 									Algo Grill
 								</h1>
-								<p className=' text-center italic'>
+								<p className='italic text-center '>
 									Aplicación dedicada la creación y búsqueda de descripción de
 									videojuegos.
 								</p>
 							</div>
 							<div>
-								<h3 className='text-xl font-semibold mb-2 font-roboto text-center'>
+								<h3 className='mb-2 text-xl font-semibold text-center font-roboto'>
 									Tecnologías Aplicadas
 								</h3>
-								<ul className='flex items-center justify-center space-x-4 flex-wrap'>
+								<ul className='flex flex-wrap items-center justify-center space-x-4'>
 									<li className='flex flex-col items-center'>
 										<BiLogoTypescript size={35} className='text-blue-500' />
 										<span className='text-xs'>Typescript</span>
@@ -101,7 +68,7 @@ const Projects = (): JSX.Element => {
 							</div>
 						</figure>
 					</div>
-					<div className='items-center flex justify-evenly w-full'>
+					<div className='flex items-center w-full justify-evenly'>
 						<a
 							href='https://algogrill.vercel.app/'
 							target='_blank'
@@ -120,30 +87,30 @@ const Projects = (): JSX.Element => {
 				</div>
 
 				{/* gamerzone */}
-				<div className='items-center flex flex-col'>
+				<div className='flex flex-col items-center'>
 					<div className='hover:scale-[1.02] ease-in duration-300 '>
 						<figure className='rounded-lg shadow-lg p-6 w-[300px] h-[510px] bg-black bg-opacity-75 m-6 ring-4 ring-white'>
 							<div className='mb-4'>
 								<img
 									src='imagenes/homePageGZ.png'
 									alt='gamerzone'
-									className='w-96 h-auto mx-auto'
+									className='h-auto mx-auto w-96'
 								/>
 							</div>
 							<div className='mb-4'>
-								<h1 className='text-xl font-bold font-roboto text-center'>
+								<h1 className='text-xl font-bold text-center font-roboto'>
 									Gamer Zone
 								</h1>
-								<p className=' text-center italic'>
+								<p className='italic text-center '>
 									Aplicación dedicada la creación y búsqueda de descripción de
 									videojuegos.
 								</p>
 							</div>
 							<div>
-								<h3 className='text-xl font-semibold mb-2 font-roboto text-center'>
+								<h3 className='mb-2 text-xl font-semibold text-center font-roboto'>
 									Tecnologías Aplicadas
 								</h3>
-								<ul className='flex items-center justify-center space-x-4 flex-wrap'>
+								<ul className='flex flex-wrap items-center justify-center space-x-4'>
 									<li className='flex flex-col items-center'>
 										<BiLogoJavascript size={35} className='text-yellow-500' />
 										<span className='text-xs'>Javascript</span>
@@ -168,7 +135,7 @@ const Projects = (): JSX.Element => {
 							</div>
 						</figure>
 					</div>
-					<div className='items-center flex justify-evenly w-full'>
+					<div className='flex items-center w-full justify-evenly'>
 						<a
 							href='https://gamezone-six.vercel.app/'
 							target='_blank'
@@ -187,30 +154,30 @@ const Projects = (): JSX.Element => {
 				</div>
 
 				{/* ReStore */}
-				<div className='items-center flex flex-col'>
+				<div className='flex flex-col items-center'>
 					<div className='hover:scale-[1.02] ease-in duration-300 '>
 						<figure className='rounded-lg shadow-lg p-6 w-[300px] h-[510px] bg-black bg-opacity-75 m-6 ring-4 ring-white'>
 							<div className='mb-4'>
 								<img
 									src='imagenes/restore.png'
 									alt='restore'
-									className='w-96 h-auto mx-auto'
+									className='h-auto mx-auto w-96'
 								/>
 							</div>
 							<div className='mb-4'>
-								<h1 className='text-xl font-bold font-roboto text-center'>
+								<h1 className='text-xl font-bold text-center font-roboto'>
 									ReStore
 								</h1>
-								<p className=' text-center italic'>
+								<p className='italic text-center '>
 									E-commerce inspirada en venta de artefactos tecnológicos
 									reutilizables.
 								</p>
 							</div>
 							<div>
-								<h3 className='text-xl font-semibold mb-2 font-roboto text-center'>
+								<h3 className='mb-2 text-xl font-semibold text-center font-roboto'>
 									Tecnologías Aplicadas
 								</h3>
-								<ul className='flex items-center justify-center space-x-4 flex-wrap'>
+								<ul className='flex flex-wrap items-center justify-center space-x-4'>
 									<li className='flex flex-col items-center'>
 										<BiLogoJavascript size={35} className='text-yellow-500' />
 										<span className='text-xs'>Javascript</span>
@@ -218,7 +185,7 @@ const Projects = (): JSX.Element => {
 									<li className='flex flex-col items-center'>
 										<SiNextdotjs
 											size={35}
-											className='text-slate-950 bg-white rounded-full'
+											className='bg-white rounded-full text-slate-950'
 										/>
 										<span className='text-xs'>Next.js</span>
 									</li>
@@ -242,7 +209,7 @@ const Projects = (): JSX.Element => {
 							</div>
 						</figure>
 					</div>
-					<div className='items-center flex justify-evenly w-full'>
+					<div className='flex items-center w-full justify-evenly'>
 						<a
 							href='https://re-store-six.vercel.app/'
 							target='_blank'
@@ -260,30 +227,30 @@ const Projects = (): JSX.Element => {
 					</div>
 				</div>
 				{/* Login Page */}
-				<div className='items-center flex flex-col'>
+				<div className='flex flex-col items-center'>
 					<div className='hover:scale-[1.02] ease-in duration-300 '>
 						<figure className='rounded-lg shadow-lg p-6 w-[300px] h-[510px] bg-black bg-opacity-75 m-6 ring-4 ring-white'>
 							<div className='mb-4'>
 								<img
 									src='imagenes/sesion.png'
 									alt='restore'
-									className='w-96 h-auto mx-auto'
+									className='h-auto mx-auto w-96'
 								/>
 							</div>
 							<div className='mb-4'>
-								<h1 className='text-xl font-bold font-roboto text-center'>
+								<h1 className='text-xl font-bold text-center font-roboto'>
 									Login Page
 								</h1>
-								<p className=' text-center italic'>
+								<p className='italic text-center '>
 									Pagina para poder iniciar sesión usando Api rest, guards y
 									lazyload
 								</p>
 							</div>
 							<div>
-								<h3 className='text-xl font-semibold mb-2 font-roboto text-center'>
+								<h3 className='mb-2 text-xl font-semibold text-center font-roboto'>
 									Tecnologías Aplicadas
 								</h3>
-								<ul className='flex items-center justify-center space-x-4 flex-wrap'>
+								<ul className='flex flex-wrap items-center justify-center space-x-4'>
 									<li className='flex flex-col items-center'>
 										<BiLogoAngular
 											size={35}
@@ -306,7 +273,7 @@ const Projects = (): JSX.Element => {
 							</div>
 						</figure>
 					</div>
-					<div className='items-center flex justify-evenly w-full'>
+					<div className='flex items-center w-full justify-evenly'>
 						<a
 							href='https://github.com/psamirt/proceso-seleccion'
 							target='_blank'
@@ -318,7 +285,7 @@ const Projects = (): JSX.Element => {
 				</div>
 
 				{/* Gestion Car */}
-				<div className='items-center flex flex-col'>
+				<div className='flex flex-col items-center'>
 					<div className='hover:scale-[1.02] ease-in duration-300 '>
 						<figure className='rounded-lg shadow-lg p-6 w-[300px] h-[510px] bg-black bg-opacity-75 m-6 ring-4 ring-white'>
 							<div
@@ -331,23 +298,23 @@ const Projects = (): JSX.Element => {
 									muted
 									loop
 									playsInline
-									className='w-96 h-auto mx-auto'
+									className='h-auto mx-auto w-96'
 								/>
 							</div>
 							<div className='mb-4'>
-								<h1 className='text-xl font-bold font-roboto text-center'>
+								<h1 className='text-xl font-bold text-center font-roboto'>
 									Gestion Car
 								</h1>
-								<p className=' text-center italic'>
+								<p className='italic text-center '>
 									Pagina dedicada a la gestión de clientes para talleres
 									automotrices
 								</p>
 							</div>
 							<div>
-								<h3 className='text-xl font-semibold mb-2 font-roboto text-center'>
+								<h3 className='mb-2 text-xl font-semibold text-center font-roboto'>
 									Tecnologías Aplicadas
 								</h3>
-								<ul className='flex items-center justify-center space-x-4 flex-wrap'>
+								<ul className='flex flex-wrap items-center justify-center space-x-4'>
 									<li className='flex flex-col items-center'>
 										<BiLogoReact size={35} className='text-blue-400' />
 										<span className='text-xs'>React</span>
@@ -381,7 +348,7 @@ const Projects = (): JSX.Element => {
 							</div>
 						</figure>
 					</div>
-					<div className='items-center flex justify-evenly w-full'>
+					<div className='flex items-center w-full justify-evenly'>
 						<a
 							href='https://github.com/psamirt/proceso-seleccion'
 							target='_blank'
@@ -391,7 +358,7 @@ const Projects = (): JSX.Element => {
 						</a>
 					</div>
 				</div>
-			</motion.div>
+			</div>
 			<AnimatePresence>
 				{selectedId && (
 					<motion.div
@@ -400,7 +367,7 @@ const Projects = (): JSX.Element => {
 						initial={{ opacity: 0 }}
 						animate={{ opacity: 1 }}
 						exit={{ opacity: 0 }}
-						className='bg-black/80 fixed w-full h-screen z-10 top-0 right-0 flex items-center justify-center'
+						className='fixed top-0 right-0 z-10 flex items-center justify-center w-full h-screen bg-black/80'
 						onClick={() => setSelectedId(null)}
 					>
 						<video
@@ -414,7 +381,7 @@ const Projects = (): JSX.Element => {
 					</motion.div>
 				)}
 			</AnimatePresence>
-		</>
+		</div>
 	)
 }
 

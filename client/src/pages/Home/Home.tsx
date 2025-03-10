@@ -1,47 +1,82 @@
+import { useEffect, useRef } from 'react'
+import gsap from 'gsap'
 import Carousel from '../../components/Carousel'
-import Contact from '../contact/Contact'
 import Projects from '../projects/Projects'
-import { motion } from 'framer-motion'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+gsap.registerPlugin(ScrollTrigger)
 
 const Home = (): JSX.Element => {
+	const cardRef = useRef(null)
+	const carouselRef = useRef(null)
+	const projectsRef = useRef(null)
+	const containerRef = useRef(null)
+
+	useEffect(() => {
+		const tl = gsap.timeline({
+			scrollTrigger: {
+				trigger: containerRef.current,
+				start: 'top top',
+				end: 'bottom bottom',
+				scrub: true,
+				pin: true,
+			},
+		})
+
+		tl.to(cardRef.current, {
+			x: -1000,
+			opacity: 1,
+			duration: 5,
+		})
+			.to(
+				carouselRef.current,
+				{
+					x: 1000,
+					opacity: 1,
+					duration: 5,
+				},
+				0,
+			)
+			.to(
+				projectsRef.current,
+				{
+					opacity: 1,
+					duration: 2,
+				},
+				'-=4',
+			)
+	}, [])
+
 	return (
-		<div>
-			<motion.div
-				initial={{
-					opacity: 0,
-					translateX: 50,
-				}}
-				animate={{ opacity: 1, translateX: 0, translateY: 0 }}
-				transition={{ duration: 2, delay: 0.1 }}
-				className='flex flex-col lg:flex-row h-[100vh]  p-4 lg:p-8 items-center lg:justify-evenly'
-			>
-				{/* Contenedor de la tarjeta de presentación */}
-				<div className='max-w-xs lg:max-w-lg text-center flex-col p-2 '>
-					<img
-						src='imagenes/foto.png'
-						alt='foto'
-						className='h-36 lg:h-48 rounded-full mt-4 float-left'
-					/>
-					<div className='pt-4 lg:pt-6 text-center space-y-2 lg:space-y-4'>
-						<p className='text-sm md:text-base lg:text-xl font-roboto'>
-							Soy un desarrollador Front-end con sólida base en tecnologías
-							clave como JavaScript, Node.js, HTML, CSS, Bootstrap, Tailwind y
-							Next.js. Comprometido con la excelencia, habituado a trabajar con
-							tecnologías ágiles y autodidacta. He desarrollado proyectos
-							personales y grupales demostrando creatividad y capacidad de
-							resolución de problemas.
-						</p>
+		<div ref={containerRef} className='h-[170vh] relative'>
+			{/* Sección principal */}
+			<div className='flex flex-col lg:flex-row p-4 lg:p-8 h-[100vh] absolute items-center lg:justify-evenly z-10 w-full'>
+				<div
+					ref={cardRef}
+					className='max-w-xs lg:max-w-lg text-center justify-center flex-col p-2 overflow-hidden'
+				>
+					<div className='h-[550px] items-center flex'>
+						<img
+							src='imagenes/foto.png'
+							alt='foto'
+							className='h-36 lg:h-48 rounded-full mt-4 float-left'
+						/>
+						<div className='pt-4 lg:pt-6 text-center space-y-2 lg:space-y-4'>
+							<p className='text-sm md:text-base lg:text-xl font-roboto'>
+								Soy un desarrollador Front-end con sólida base en tecnologías
+								clave como JavaScript, Node.js, HTML, CSS, Bootstrap, Tailwind y
+								Next.js...
+							</p>
+						</div>
 					</div>
 				</div>
-				{/* Carrusel de imágenes */}
-				<div className='mt-4 lg:mt-0'>
+
+				<div ref={carouselRef} className='mt-4 lg:mt-0 overflow-hidden'>
 					<Carousel />
 				</div>
-			</motion.div>
-			<hr id='projects' />
-			<Projects />
-			<hr id='contact' />
-			<Contact />
+			</div>
+			<div ref={projectsRef} className='absolute w-full top-20 opacity-0'>
+				<Projects />
+			</div>
 		</div>
 	)
 }

@@ -4,11 +4,12 @@ import Projects from './pages/projects/Projects'
 import Navbar from './components/Navbar'
 import Contact from './pages/contact/Contact'
 import Background from './components/Background'
-import Footer from './components/Footer'
+import SocialMedia from './components/SocialMedia'
 
 const App = (): JSX.Element => {
 	return (
 		<div>
+			<SocialMedia />
 			<Navbar />
 			<Background />
 			<Routes>
@@ -16,7 +17,6 @@ const App = (): JSX.Element => {
 				<Route path='/projects' element={<Projects />} />
 				<Route path='/contact' element={<Contact />} />
 			</Routes>
-			<Footer />
 		</div>
 	)
 }

@@ -7,6 +7,7 @@
         @apply border-white rounded-xl px-5 py-1
     }
     body {
-        @apply text-white font-roboto bg-slate-900 max-w-[1640px] mx-auto min-h-[100vh] relative
+        @apply text-white font-roboto bg-zinc-950 max-w-[1640px] mx-auto min-h-[100vh] relative overflow-x-hidden
     }
+
 }

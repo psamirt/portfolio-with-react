@@ -2,16 +2,18 @@ import React, { useState } from 'react'
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai'
 import { BsDownload } from 'react-icons/bs'
 
-
 const Navbar: React.FC = () => {
 	const [nav, setNav] = useState(false)
 
 	return (
-		<div className='max-w-[1640px] mx-auto flex justify-between items-center p-4 '>
+		<div className='max-w-[1640px] w-full mx-auto flex justify-between items-center p-4 fixed bg-zinc-950 z-[100]'>
 			{/* left side */}
 
 			<div className='flex items-center'>
-				<div onClick={() => setNav(!nav)} className='cursor-pointer block lg:hidden fixed'>
+				<div
+					onClick={() => setNav(!nav)}
+					className='cursor-pointer block lg:hidden fixed'
+				>
 					<AiOutlineMenu size={30} />
 				</div>
 				<h1 className='text-2xl ml-7 sm:text-3xl lg:text-4xl px-2'>
@@ -36,7 +38,7 @@ const Navbar: React.FC = () => {
 						href='#projects'
 						className='hidden lg:flex text-xl mx-6 px-3 hover:translate-y-[0.5px]'
 					>
-						Proyectos
+						Experiencias
 					</a>
 					<a
 						href='#contact'
@@ -60,12 +62,11 @@ const Navbar: React.FC = () => {
 			{/* Mobile menu */}
 			{/* Overlay */}
 			{nav ? (
-				<div className= {
-					nav
-					? 'bg-black/80 fixed w-full h-screen z-10 top-0'
-					: 'hidden'
-				}
-				onClick={()=> setNav(false)}
+				<div
+					className={
+						nav ? 'bg-black/80 fixed w-full h-screen z-10 top-0' : 'hidden'
+					}
+					onClick={() => setNav(false)}
 				></div>
 			) : (
 				''
@@ -91,27 +92,36 @@ const Navbar: React.FC = () => {
 				</h1>
 				<nav>
 					<ul className='flex-col px-4 py-4 text-white-800'>
-						<a href='' className='text-xl py-4 flex justify-center  hover:translate-y-[0.5px]'>
+						<a
+							href=''
+							className='text-xl py-4 flex justify-center  hover:translate-y-[0.5px]'
+						>
 							{' '}
 							Acerca de mi{' '}
 						</a>
-						<a href='#projects' className='text-xl py-4 flex justify-center  hover:translate-y-[0.5px]'>
+						<a
+							href='#projects'
+							className='text-xl py-4 flex justify-center  hover:translate-y-[0.5px]'
+						>
 							{' '}
 							Proyectos{' '}
 						</a>
-						<a href='#contact' className='text-xl py-4 flex justify-center  hover:translate-y-[0.5px]'>
+						<a
+							href='#contact'
+							className='text-xl py-4 flex justify-center  hover:translate-y-[0.5px]'
+						>
 							{' '}
 							Contacto{' '}
 						</a>
 					</ul>
 					<a
-				href='CV-Samir.pdf'
-				download
-				className='bg-slate-50 text-black flex lg:hidden items-center mx-auto w-[70px] px-3 rounded-full hover:bg-slate-300 hover:translate-y-[0.5px]'
-			>
-				<BsDownload size={20} className='mr-2' />
-				CV
-			</a>
+						href='CV-Samir.pdf'
+						download
+						className='bg-slate-50 text-black flex lg:hidden items-center mx-auto w-[70px] px-3 rounded-full hover:bg-slate-300 hover:translate-y-[0.5px]'
+					>
+						<BsDownload size={20} className='mr-2' />
+						CV
+					</a>
 				</nav>
 			</div>
 		</div>
