@@ -84,11 +84,12 @@ const Home = (): JSX.Element => {
 						<div className='pt-4 lg:pt-6 text-center space-y-2 lg:space-y-4'>
 							<p className='text-sm md:text-base lg:text-xl font-roboto'>
 								Soy un desarrollador Front-end con sólida base en tecnologías
-								clave como JavaScript, Node.js, HTML, CSS, Bootstrap, Tailwind y
-								Next.js. Comprometido con la excelencia, habituado a trabajar
-								con tecnologías ágiles y autodidacta. He desarrollado proyectos
-								personales y grupales demostrando creatividad y capacidad de
-								resolución de problemas.
+								clave como JavaScript, Typescript, Tanstack Query, Zustand,
+								Redux, HTML, CSS, Bootstrap, Tailwind, React, React Native,
+								Next.js y Angular. Comprometido con la excelencia, habituado a
+								trabajar con tecnologías ágiles y autodidacta. He desarrollado
+								proyectos personales y grupales demostrando creatividad y
+								capacidad de resolución de problemas.
 							</p>
 						</div>
 					</div>

@@ -1,0 +1,190 @@
+[
+	{
+		"image": "imagenes/algoGrill.png",
+		"title": "Algo Grill",
+		"description": "Aplicación dedicada la creación y búsqueda de descripción de videojuegos.",
+		"link": "https://algogrill.vercel.app/",
+		"linkText": "Algo Grill",
+		"technologies": [
+			{
+				"icon": "BiLogoTypescript",
+				"name": "Typescript",
+				"size": 35,
+				"className": "text-blue-500"
+			},
+			{
+				"icon": "BiLogoReact",
+				"name": "React",
+				"size": 35,
+				"className": "text-blue-400"
+			},
+			{
+				"icon": "BiLogoTailwindCss",
+				"name": "Tailwind",
+				"size": 35,
+				"className": "text-teal-400"
+			},
+			{
+				"icon": "BiSolidFileCss",
+				"name": "CSS",
+				"size": 35,
+				"className": "text-gray-600"
+			}
+		],
+		"github": "https://github.com/psamirt/algogrill"
+	},
+	{
+		"image": "imagenes/homePageGZ.png",
+		"title": "Gamer Zone",
+		"description": "Aplicación dedicada la creación y búsqueda de descripción de videojuegos.",
+		"link": "https://gamezone-six.vercel.app/",
+		"linkText": "Gamer Zone",
+		"technologies": [
+			{
+				"icon": "BiLogoJavascript",
+				"name": "Javascript",
+				"size": 35,
+				"className": "text-yellow-500"
+			},
+			{
+				"icon": "BiLogoReact",
+				"name": "React",
+				"size": 35,
+				"className": "text-blue-400"
+			},
+			{
+				"icon": "BiLogoRedux",
+				"name": "Redux",
+				"size": 35,
+				"className": "text-violet-600"
+			},
+			{
+				"icon": "BiSolidFileCss",
+				"name": "CSS",
+				"size": 35,
+				"className": "text-gray-600"
+			},
+			{
+				"icon": "BiLogoPostgresql",
+				"name": "PostgreSQL",
+				"size": 35,
+				"className": "text-sky-600"
+			}
+		],
+		"github": "https://github.com/psamirt/Gamer-Zone"
+	},
+	{
+		"image": "imagenes/restore.png",
+		"title": "ReStore",
+		"description": "E-commerce inspirada en venta de artefactos tecnológicos reutilizables.",
+		"link": "https://re-store-six.vercel.app/",
+		"linkText": "ReStore",
+		"technologies": [
+			{
+				"icon": "BiLogoJavascript",
+				"name": "Javascript",
+				"size": 35,
+				"className": "text-yellow-500"
+			},
+			{
+				"icon": "SiNextdotjs",
+				"name": "Next.js",
+				"size": 35,
+				"className": "text-slate-600"
+			},
+			{
+				"icon": "BiLogoRedux",
+				"name": "Redux",
+				"size": 35,
+				"className": "text-violet-600"
+			},
+			{
+				"icon": "BiLogoTailwindCss",
+				"name": "Tailwind",
+				"size": 35,
+				"className": "text-teal-400"
+			},
+			{
+				"icon": "BiSolidFileCss",
+				"name": "CSS",
+				"size": 35,
+				"className": "text-gray-600"
+			},
+			{
+				"icon": "BiLogoMongodb",
+				"name": "MongoDB",
+				"size": 35,
+				"className": "text-green-700"
+			}
+		],
+		"github": "https://github.com/psamirt/ReStore"
+	},
+	{
+		"image": "imagenes/sesion.png",
+		"title": "Login Page",
+		"description": "Pagina para poder iniciar sesión usando Api rest, guards y lazyload",
+		"link": "https://github.com/psamirt/proceso-seleccion",
+		"linkText": "Ver en GitHub",
+		"technologies": [
+			{
+				"icon": "BiLogoAngular",
+				"name": "Angular",
+				"size": 35,
+				"className": "text-red-500"
+			},
+			{
+				"icon": "BiSolidFileCss",
+				"name": "CSS",
+				"size": 35,
+				"className": "text-gray-600"
+			},
+			{
+				"icon": "BiLogoHtml5",
+				"name": "HTML5",
+				"size": 35,
+				"className": "text-orange-600"
+			}
+		],
+		"github": "https://github.com/psamirt/proceso-seleccion"
+	},
+	{
+		"image": "videos/gestionCarClip.mp4",
+		"title": "Gestion Car",
+		"description": "Pagina dedicada a la gestión de clientes para talleres automotrices",
+		"link": "https://github.com/psamirt/proceso-seleccion",
+		"linkText": "Ver en GitHub",
+		"technologies": [
+			{
+				"icon": "BiLogoReact",
+				"name": "React",
+				"size": 35,
+				"className": "text-blue-400"
+			},
+			{
+				"icon": "BiSolidFileCss",
+				"name": "CSS",
+				"size": 35,
+				"className": "text-gray-600"
+			},
+			{
+				"icon": "SiSass",
+				"name": "SASS",
+				"size": 35,
+				"className": "text-red-600"
+			},
+			{
+				"icon": "BiLogoBootstrap",
+				"name": "Bootstrap",
+				"size": 35,
+				"className": "text-purple-600"
+			},
+			{
+				"icon": "SiReactquery",
+				"name": "TanStack query",
+				"size": 35,
+				"className": "text-orange-600"
+			}
+		],
+		"github": "https://github.com/psamirt/proceso-seleccion"
+	}
+]
