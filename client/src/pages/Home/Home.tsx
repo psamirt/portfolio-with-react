@@ -4,6 +4,7 @@ import Carousel from '../../components/Carousel'
 import Projects from '../projects/Projects'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
+import SplitType from 'split-type'
 
 const Home = (): JSX.Element => {
 	const cardRef = useRef(null)
@@ -12,6 +13,51 @@ const Home = (): JSX.Element => {
 	const containerRef = useRef(null)
 
 	useEffect(() => {
+		const text = new SplitType('.text-description', {
+			types: 'words,chars',
+		})
+		text.chars?.forEach((char, index) => {
+			gsap.from(char, {
+				y: gsap.utils.random(-150, 150),
+				x: gsap.utils.random(-300, 300),
+				rotate: gsap.utils.random(-360, 360),
+				scale: gsap.utils.random(0, 2),
+				opacity: 0,
+				duration: 0.75,
+				ease: 'back.out',
+				delay: index * 0.01,
+			})
+			char.addEventListener('mouseenter', charsHover)
+			function charsHover() {
+				gsap
+					.timeline()
+					.to(char, {
+						y: gsap.utils.random(-50, 50),
+						x: gsap.utils.random(-50, 50),
+						rotate: gsap.utils.random(-90, 90),
+						scale: gsap.utils.random(0.5, 1.5),
+						duration: 0.25,
+						ease: 'back.out',
+						onStart: () => {
+							char.removeEventListener('mouseenter', charsHover)
+						},
+					})
+					.to(char, {
+						y: 0,
+						x: 0,
+						rotate: 0,
+						scale: 1,
+						duration: 1,
+						ease: 'back.out',
+						onComplete: () => {
+							setTimeout(() => {
+								char.addEventListener('mouseenter', charsHover)
+							}, 100)
+						},
+					})
+			}
+		})
+
 		const tl = gsap.timeline({
 			scrollTrigger: {
 				trigger: containerRef.current,
@@ -82,14 +128,12 @@ const Home = (): JSX.Element => {
 							className='h-36 lg:h-48 rounded-full mt-4 lg:mt-0'
 						/>
 						<div className='pt-4 lg:pt-6 text-center space-y-2 lg:space-y-4'>
-							<p className='text-sm md:text-base lg:text-xl font-roboto'>
-								Soy un desarrollador Front-end con sólida base en tecnologías
-								clave como JavaScript, Typescript, Tanstack Query, Zustand,
-								Redux, HTML, CSS, Bootstrap, Tailwind, React, React Native,
-								Next.js y Angular. Comprometido con la excelencia, habituado a
-								trabajar con tecnologías ágiles y autodidacta. He desarrollado
-								proyectos personales y grupales demostrando creatividad y
-								capacidad de resolución de problemas.
+							<p className='text-description text-sm md:text-base lg:text-xl font-roboto'>
+								Transformo ideas en experiencias digitales. Como Full Stack
+								Developer, combino React, Node.js y la nube para crear
+								aplicaciones modernas, eficientes y enfocadas en el usuario. Me
+								apasiona aprender, colaborar y construir tecnología con
+								propósito.
 							</p>
 						</div>
 					</div>

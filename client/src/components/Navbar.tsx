@@ -1,26 +1,61 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai'
 import { BsDownload } from 'react-icons/bs'
+import gsap from 'gsap'
 
 const Navbar: React.FC = () => {
 	const [nav, setNav] = useState(false)
+	const nameRef = useRef(null)
+	const lastNameRef = useRef(null)
+	const iconRef = useRef(null)
+	const devRef = useRef(null)
 
+	useEffect(() => {
+		if (
+			nameRef.current &&
+			lastNameRef.current &&
+			devRef.current &&
+			iconRef.current
+		) {
+			gsap.from([nameRef.current, lastNameRef.current, devRef.current], {
+				duration: 2,
+				y: -100,
+				ease: 'power3.out',
+				stagger: 0.3,
+			})
+			gsap.from(iconRef.current, {
+				opacity: 0,
+				duration: 2,
+				rotate: 360,
+			})
+		}
+	}, [])
 	return (
 		<div className='max-w-[1640px] w-full mx-auto flex justify-between items-center p-4 fixed bg-zinc-950 z-[100]'>
 			{/* left side */}
 
 			<div className='flex items-center'>
 				<div
+					ref={iconRef}
 					onClick={() => setNav(!nav)}
 					className='cursor-pointer block lg:hidden fixed'
 				>
 					<AiOutlineMenu size={30} />
 				</div>
-				<h1 className='text-2xl ml-7 sm:text-3xl lg:text-4xl px-2'>
-					Paolo <span className='font-bold'>Tello</span>
+				<h1 ref={nameRef} className='text-2xl ml-7 sm:text-3xl lg:text-4xl '>
+					Paolo{' '}
 				</h1>
-				<div className='hidden lg:flex items-center bg-white text-black rounded-full p-1 text-[14px] font-bold'>
-					<p>Front-end Developer</p>
+				<h1
+					ref={lastNameRef}
+					className='font-bold text-2xl sm:text-3xl lg:text-4xl px-2'
+				>
+					Tello
+				</h1>
+				<div
+					ref={devRef}
+					className='hidden lg:flex items-center bg-white text-black rounded-full p-1 px-2 text-[14px] font-bold'
+				>
+					<p> Full stack Developer</p>
 				</div>
 			</div>
 
