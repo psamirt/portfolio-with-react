@@ -53,7 +53,7 @@ const Contact = (): JSX.Element => {
 
 	return (
 		<div className='py-8 h-[100vh] flex items-center justify-center'>
-			<motion.section 
+			<motion.section
 				initial={{ opacity: 0, y: 20 }}
 				animate={{ opacity: 1, y: 0 }}
 				transition={{ duration: 0.5 }}
@@ -66,7 +66,10 @@ const Contact = (): JSX.Element => {
 				</h3>
 				<form onSubmit={handleSubmit} className='space-y-6'>
 					<div className='space-y-2'>
-						<label htmlFor='name' className='block text-sm font-medium text-gray-300'>
+						<label
+							htmlFor='name'
+							className='block text-sm font-medium text-gray-300'
+						>
 							Nombre
 						</label>
 						<input
@@ -80,7 +83,10 @@ const Contact = (): JSX.Element => {
 						/>
 					</div>
 					<div className='space-y-2'>
-						<label htmlFor='email' className='block text-sm font-medium text-gray-300'>
+						<label
+							htmlFor='email'
+							className='block text-sm font-medium text-gray-300'
+						>
 							Correo electrónico
 						</label>
 						<input
@@ -94,7 +100,10 @@ const Contact = (): JSX.Element => {
 						/>
 					</div>
 					<div className='space-y-2'>
-						<label htmlFor='message' className='block text-sm font-medium text-gray-300'>
+						<label
+							htmlFor='message'
+							className='block text-sm font-medium text-gray-300'
+						>
 							Mensaje
 						</label>
 						<textarea

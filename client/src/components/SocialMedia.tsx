@@ -1,14 +1,31 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import {
 	FaGithub,
 	FaLinkedin,
 	FaWhatsapp,
 	FaPlus,
+	FaSun,
+	FaMoon,
 } from 'react-icons/fa'
 import { motion } from 'framer-motion'
 
 function SocialMedia() {
 	const [open, setOpen] = useState(false)
+	const [theme, setTheme] = useState('dark')
+
+	useEffect(() => {
+		// Verificar el tema guardado en localStorage
+		const savedTheme = localStorage.getItem('theme') || 'dark'
+		setTheme(savedTheme)
+		document.documentElement.classList.toggle('dark', savedTheme === 'dark')
+	}, [])
+
+	const toggleTheme = () => {
+		const newTheme = theme === 'dark' ? 'light' : 'dark'
+		setTheme(newTheme)
+		localStorage.setItem('theme', newTheme)
+		document.documentElement.classList.toggle('dark', newTheme === 'dark')
+	}
 
 	return (
 		<div className='fixed bottom-6 right-6 flex flex-col items-center z-50'>
@@ -20,44 +37,64 @@ function SocialMedia() {
 			>
 				{open && (
 					<>
-						<a
+						<motion.a
+							initial={{ scale: 0 }}
+							animate={{ scale: 1 }}
+							transition={{ delay: 0.1 }}
 							href='https://github.com/psamirt'
 							target='_blank'
 							rel='noopener noreferrer'
-							className='bg-gray-600 p-3 rounded-full text-white shadow-md'
+							className='bg-gray-600 dark:bg-black p-3 rounded-full text-white shadow-md hover:scale-110 transition-transform duration-200'
 						>
 							<FaGithub size={20} />
-						</a>
-						<a
+						</motion.a>
+						<motion.a
+							initial={{ scale: 0 }}
+							animate={{ scale: 1 }}
+							transition={{ delay: 0.2 }}
 							href='http://api.whatsapp.com/send?phone=51982254431'
 							target='_blank'
 							rel='noopener noreferrer'
-							className='bg-green-500 p-3 rounded-full text-white shadow-md'
+							className='bg-green-500 dark:bg-green-600 p-3 rounded-full text-white shadow-md hover:scale-110 transition-transform duration-200'
 						>
 							<FaWhatsapp size={20} />
-						</a>
-						<a
+						</motion.a>
+						<motion.a
+							initial={{ scale: 0 }}
+							animate={{ scale: 1 }}
+							transition={{ delay: 0.3 }}
 							href='https://www.linkedin.com/in/paolo-tello-7a1872285'
 							target='_blank'
 							rel='noopener noreferrer'
-							className='bg-blue-700 p-3 rounded-full text-white shadow-md'
+							className='bg-blue-700 dark:bg-blue-800 p-3 rounded-full text-white shadow-md hover:scale-110 transition-transform duration-200'
 						>
 							<FaLinkedin size={20} />
-						</a>
+						</motion.a>
+						<motion.button
+							initial={{ scale: 0 }}
+							animate={{ scale: 1 }}
+							transition={{ delay: 0.4 }}
+							onClick={toggleTheme}
+							className='bg-yellow-500 dark:bg-purple-600 p-3 rounded-full text-white shadow-md hover:scale-110 transition-transform duration-200'
+						>
+							{theme === 'dark' ? <FaSun size={20} /> : <FaMoon size={20} />}
+						</motion.button>
 					</>
 				)}
 			</motion.div>
 
 			{/* Botón principal */}
-			<button
+			<motion.button
+				whileHover={{ scale: 1.1 }}
+				whileTap={{ scale: 0.9 }}
 				onClick={() => setOpen(!open)}
-				className='bg-gray-800 p-4 rounded-full text-white shadow-lg flex items-center justify-center transition-all transform hover:scale-110'
+				className='bg-gray-800 dark:bg-black p-4 rounded-full text-white shadow-lg flex items-center justify-center transition-all'
 			>
 				<FaPlus
 					size={24}
-					className={`transition-transform ${open ? 'rotate-45' : ''}`}
+					className={`transition-transform duration-300 ${open ? 'rotate-45' : ''}`}
 				/>
-			</button>
+			</motion.button>
 		</div>
 	)
 }

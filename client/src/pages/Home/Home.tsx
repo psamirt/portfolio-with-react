@@ -9,7 +9,6 @@ import Contact from '../contact/Contact'
 
 const Home = (): JSX.Element => {
 	const profileRef = useRef<HTMLDivElement>(null)
-	// const carouselRef = useRef<HTMLDivElement>(null)
 	const heroRef = useRef<HTMLDivElement>(null)
 	const projectsRef = useRef<HTMLDivElement>(null)
 	const containerRef = useRef<HTMLDivElement>(null)
@@ -18,29 +17,23 @@ const Home = (): JSX.Element => {
 	const contactRef = useRef<HTMLDivElement>(null)
 
 	useEffect(() => {
-		// Limpiar ScrollTriggers al desmontar (buena práctica)
 		const cleanup = () => {
 			ScrollTrigger.getAll().forEach(st => st.kill())
 		}
 
 		const sections = gsap.utils.toArray<HTMLElement>('section[data-bgcolor]')
-
-		// Animación de cambio de color de fondo por sección (onEnter y onLeaveBack) - Puntos de trigger ajustados
 		sections.forEach((section: HTMLElement, index) => {
 			const bgcolor = section.dataset.bgcolor || '#000'
 
-			// Determinar el color de fondo anterior o inicial para onLeaveBack
 			const prevColor =
 				index > 0
-					? sections[index - 1].dataset.bgcolor || '#000' // Color de la sección anterior
-					: getComputedStyle(scrollRef.current!).backgroundColor // Color inicial del contenedor principal
-
+					? sections[index - 1].dataset.bgcolor || '#000'
+					: getComputedStyle(scrollRef.current!).backgroundColor
 			ScrollTrigger.create({
 				trigger: section,
-				start: 'top bottom', // Comienza la animación *a* el color de esta sección cuando su top entra por abajo
-				end: 'bottom top', // La animación *desde* el color de esta sección (hacia arriba) ocurre antes de que su bottom salga por arriba
+				start: 'top bottom',
+				end: 'bottom top',
 				onEnter: () => {
-					// Al scrollear hacia abajo y el trigger start se cumple
 					gsap.to(scrollRef.current, {
 						backgroundColor: bgcolor,
 						duration: 0.5,
@@ -48,15 +41,12 @@ const Home = (): JSX.Element => {
 					})
 				},
 				onLeaveBack: () => {
-					// Al scrollear hacia arriba y el trigger start se cruza de nuevo (saliendo de la sección)
-					// Animamos de vuelta al color de la sección anterior o inicial
 					gsap.to(scrollRef.current, {
 						backgroundColor: prevColor,
 						duration: 0.5,
 						ease: 'none',
 					})
 				},
-				// markers: true, // Muestra marcadores para depuración
 			})
 		})
 
@@ -172,8 +162,6 @@ const Home = (): JSX.Element => {
 						scrub: 4,
 						anticipatePin: 1,
 						invalidateOnRefresh: true,
-
-						// markers: true,
 					},
 				})
 			}
@@ -184,36 +172,29 @@ const Home = (): JSX.Element => {
 
 	return (
 		<div ref={scrollRef}>
-			{/* Sección principal */}
 			<section
 				ref={heroRef}
 				data-bgcolor='#27272a'
-				className='flex flex-col justify-center items-center p-4 lg:p-8 min-h-screen w-full overflow-hidden'
+				className='flex flex-col lg:justify-center items-center p-4 lg:p-8 min-h-screen w-full overflow-hidden'
 			>
-				{/* <div className='max-w-xs lg:max-w-lg text-center justify-center'> */}
 				<div
 					ref={profileRef}
-					className='h-[550px] justify-evenly w-full items-center flex'
+					className='flex flex-col lg:flex-row items-center justify-evenly w-full gap-4 lg:gap-0 lg:h-[550px]'
 				>
 					<img
 						src='imagenes/foto.png'
 						alt='foto'
-						className='h-36 lg:h-[300px] rounded-full mt-4 lg:mt-0'
+						className='h-32 md:h-40 lg:h-[300px] mx-auto lg:mx-0 rounded-full mt-4 lg:mt-0 shadow-lg object-cover'
 					/>
-					<div className='pt-4 lg:pt-6 text-center space-y-2 lg:space-y-4 lg:w-[400px]'>
-						<p className='text-description text-sm md:text-base lg:text-4xl font-nunito'>
+					<div className='pt-4 lg:pt-6 text-center lg:text-left space-y-3 px-4 md:px-8 lg:px-0 max-w-[600px]'>
+						<p className='text-description text-sm md:text-base lg:text-2xl font-nunito leading-relaxed'>
 							Transformo ideas en experiencias digitales. Como Full Stack
 							Developer, creo aplicaciones modernas, eficientes y enfocadas en
 							el usuario. Me apasiona aprender, colaborar y construir tecnología
 							con propósito.
 						</p>
-						{/* </div> */}
 					</div>
 				</div>
-
-				{/* <div ref={carouselRef} className='mt-4 lg:mt-0'>
-					<Carousel />
-				</div> */}
 			</section>
 
 			{/* Sección de Proyectos con scroll horizontal pinneado */}
@@ -222,24 +203,22 @@ const Home = (): JSX.Element => {
 				data-bgcolor='#000'
 				className='w-full min-h-screen  flex flex-col '
 			>
-				<h1 className='titulo-experiencias text-center text-5xl mb-8 mt-20'>
+				<h1 className='titulo-experiencias text-center text-3xl md:text-4xl lg:text-5xl mb-8 mt-20'>
 					Experiencias
 				</h1>
-				{/* Este contenedor tiene overflow-hidden para ocultar las cards fuera de vista */}
+
 				<div ref={containerRef} className='w-full overflow-hidden'>
-					{/* Este es el contenedor FLEX que se moverá horizontalmente */}
-					<div ref={cardsRef} className='flex gap-52 px-4 relative z-50'>
-						<div className='flex-shrink-0 w-[300px] md:w-[400px] lg:w-[300px]' />
+					<div
+						ref={cardsRef}
+						className='flex gap-8 md:gap-20 lg:gap-52 px-4 relative z-50'
+					>
+						<div className='flex-shrink-0 w-[50px] md:w-[150px] lg:w-[300px]' />
 						{projectsData.map((project, index) => (
-							<div
-								key={index}
-								className='cards flex-shrink-0'
-								// onClick={() => setSelectedId(project.id)}
-							>
+							<div key={index} className='cards flex-shrink-0'>
 								<Cards {...project} />
 							</div>
 						))}
-						<div className='flex-shrink-0 w-[300px] md:w-[400px] lg:w-[500px]' />
+						<div className='flex-shrink-0 w-[50px] md:w-[150px] lg:w-[500px]' />
 					</div>
 				</div>
 			</section>
@@ -250,38 +229,6 @@ const Home = (): JSX.Element => {
 			>
 				<Contact />
 			</section>
-
-			{/* Espacio extra para permitir el scroll vertical que controla la animación horizontal */}
-			{/* {projectsRef.current &&
-				cardsRef.current &&
-				projectsRef.current.offsetWidth < cardsRef.current.scrollWidth && (
-					<div
-						style={{
-							height: `${
-								cardsRef.current.scrollWidth - projectsRef.current.offsetWidth
-							}px`,
-						}}
-					></div>
-				)} */}
-
-			{/* Modal de AnimatePresence */}
-			{/* <AnimatePresence>
-				{selectedId && (
-					<motion.div
-						key={selectedId}
-						layoutId={selectedId}
-						initial={{ opacity: 0 }}
-						animate={{ opacity: 1 }}
-						exit={{ opacity: 0 }}
-						className='fixed top-0 right-0 z-10 flex items-center justify-center w-full h-screen '
-						onClick={() => setSelectedId(null)}
-					>
-						<div className='text-white text-2xl'>
-							Contenido del Proyecto: {selectedId}
-						</div>
-					</motion.div>
-				)}
-			</AnimatePresence> */}
 		</div>
 	)
 }

@@ -12,7 +12,11 @@
         @apply border-white rounded-xl px-5 py-1
     }
     body {
-        @apply text-white  bg-[#27272a] max-w-[1640px] mx-auto min-h-[100vh] relative overflow-x-hidden ;
+        @apply text-gray-900 dark:text-white bg-gray-100 dark:bg-[#27272a] max-w-[1640px] mx-auto min-h-[100vh] relative overflow-x-hidden transition-colors duration-200;
     }
+}
 
+/* Transiciones suaves para el cambio de tema */
+* {
+    @apply transition-colors duration-200;
 }
