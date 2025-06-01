@@ -1,5 +1,6 @@
 [
 	{
+		"id": "1",
 		"image": "imagenes/algoGrill.png",
 		"title": "Algo Grill",
 		"description": "Aplicación dedicada la creación y búsqueda de descripción de videojuegos.",
@@ -34,6 +35,7 @@
 		"github": "https://github.com/psamirt/algogrill"
 	},
 	{
+		"id": "2",
 		"image": "imagenes/homePageGZ.png",
 		"title": "Gamer Zone",
 		"description": "Aplicación dedicada la creación y búsqueda de descripción de videojuegos.",
@@ -74,6 +76,7 @@
 		"github": "https://github.com/psamirt/Gamer-Zone"
 	},
 	{
+		"id": "3",
 		"image": "imagenes/restore.png",
 		"title": "ReStore",
 		"description": "E-commerce inspirada en venta de artefactos tecnológicos reutilizables.",
@@ -120,6 +123,7 @@
 		"github": "https://github.com/psamirt/ReStore"
 	},
 	{
+		"id": "4",
 		"image": "imagenes/sesion.png",
 		"title": "Login Page",
 		"description": "Pagina para poder iniciar sesión usando Api rest, guards y lazyload",
@@ -148,6 +152,7 @@
 		"github": "https://github.com/psamirt/proceso-seleccion"
 	},
 	{
+		"id": "5",
 		"image": "videos/gestionCarClip.mp4",
 		"title": "Gestion Car",
 		"description": "Pagina dedicada a la gestión de clientes para talleres automotrices",

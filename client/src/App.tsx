@@ -1,22 +1,36 @@
 import { Route, Routes } from 'react-router-dom'
 import Home from './pages/Home/Home'
-import Projects from './pages/projects/Projects'
 import Navbar from './components/Navbar'
 import Contact from './pages/contact/Contact'
-import Background from './components/Background'
 import SocialMedia from './components/SocialMedia'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { ScrollSmoother } from 'gsap/ScrollSmoother'
+import { useEffect } from 'react'
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother)
 
 const App = (): JSX.Element => {
+	useEffect(() => {
+		ScrollSmoother.create({
+			wrapper: '#smooth-wrapper',
+			content: '#smooth-content',
+			smooth: 2,
+			effects: true,
+		})
+	}, [])
 	return (
-		<div>
+		<div className='min-h-screen'>
 			<SocialMedia />
 			<Navbar />
-			<Background />
-			<Routes>
-				<Route path='/' element={<Home />} />
-				<Route path='/projects' element={<Projects />} />
-				<Route path='/contact' element={<Contact />} />
-			</Routes>
+			{/* <Background /> */}
+			<div id='smooth-wrapper'>
+				<main id='smooth-content' className='pt-16'>
+					<Routes>
+						<Route path='/' element={<Home />} />
+						<Route path='/contact' element={<Contact />} />
+					</Routes>
+				</main>
+			</div>
 		</div>
 	)
 }

@@ -31,7 +31,7 @@ const Navbar: React.FC = () => {
 		}
 	}, [])
 	return (
-		<div className='max-w-[1640px] w-full mx-auto flex justify-between items-center p-4 fixed bg-zinc-950 z-[100]'>
+		<div className='max-w-[1640px] w-full mx-auto flex justify-between items-center p-4  top-0 left-0 right-0  z-[100] h-16'>
 			{/* left side */}
 
 			<div className='flex items-center'>
@@ -53,7 +53,7 @@ const Navbar: React.FC = () => {
 				</h1>
 				<div
 					ref={devRef}
-					className='hidden lg:flex items-center bg-white text-black rounded-full p-1 px-2 text-[14px] font-bold'
+					className='hidden cursor-pointer lg:flex items-center bg-white text-black rounded-full p-1 px-2 text-[14px] font-bold'
 				>
 					<p> Full stack Developer</p>
 				</div>

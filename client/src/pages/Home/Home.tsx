@@ -1,18 +1,66 @@
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
-import Carousel from '../../components/Carousel'
-import Projects from '../projects/Projects'
+import projectsData from '../../components/cards.json'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 import SplitType from 'split-type'
+import Cards from '../../components/Cards'
+import Contact from '../contact/Contact'
 
 const Home = (): JSX.Element => {
-	const cardRef = useRef(null)
-	const carouselRef = useRef(null)
-	const projectsRef = useRef(null)
-	const containerRef = useRef(null)
+	const profileRef = useRef<HTMLDivElement>(null)
+	// const carouselRef = useRef<HTMLDivElement>(null)
+	const heroRef = useRef<HTMLDivElement>(null)
+	const projectsRef = useRef<HTMLDivElement>(null)
+	const containerRef = useRef<HTMLDivElement>(null)
+	const cardsRef = useRef<HTMLDivElement>(null)
+	const scrollRef = useRef<HTMLDivElement>(null)
+	const contactRef = useRef<HTMLDivElement>(null)
 
 	useEffect(() => {
+		// Limpiar ScrollTriggers al desmontar (buena práctica)
+		const cleanup = () => {
+			ScrollTrigger.getAll().forEach(st => st.kill())
+		}
+
+		const sections = gsap.utils.toArray<HTMLElement>('section[data-bgcolor]')
+
+		// Animación de cambio de color de fondo por sección (onEnter y onLeaveBack) - Puntos de trigger ajustados
+		sections.forEach((section: HTMLElement, index) => {
+			const bgcolor = section.dataset.bgcolor || '#000'
+
+			// Determinar el color de fondo anterior o inicial para onLeaveBack
+			const prevColor =
+				index > 0
+					? sections[index - 1].dataset.bgcolor || '#000' // Color de la sección anterior
+					: getComputedStyle(scrollRef.current!).backgroundColor // Color inicial del contenedor principal
+
+			ScrollTrigger.create({
+				trigger: section,
+				start: 'top bottom', // Comienza la animación *a* el color de esta sección cuando su top entra por abajo
+				end: 'bottom top', // La animación *desde* el color de esta sección (hacia arriba) ocurre antes de que su bottom salga por arriba
+				onEnter: () => {
+					// Al scrollear hacia abajo y el trigger start se cumple
+					gsap.to(scrollRef.current, {
+						backgroundColor: bgcolor,
+						duration: 0.5,
+						ease: 'none',
+					})
+				},
+				onLeaveBack: () => {
+					// Al scrollear hacia arriba y el trigger start se cruza de nuevo (saliendo de la sección)
+					// Animamos de vuelta al color de la sección anterior o inicial
+					gsap.to(scrollRef.current, {
+						backgroundColor: prevColor,
+						duration: 0.5,
+						ease: 'none',
+					})
+				},
+				// markers: true, // Muestra marcadores para depuración
+			})
+		})
+
+		// Animación para el texto del perfil
 		const text = new SplitType('.text-description', {
 			types: 'words,chars',
 		})
@@ -56,96 +104,184 @@ const Home = (): JSX.Element => {
 						},
 					})
 			}
+			return () => {
+				cleanup()
+				text.chars?.forEach(char => {
+					char.removeEventListener('mouseenter', charsHover)
+				})
+			}
 		})
 
-		const tl = gsap.timeline({
-			scrollTrigger: {
-				trigger: containerRef.current,
-				start: 'top top',
-				end: 'bottom bottom',
-				scrub: true,
-				pin: true,
-			},
-		})
+		if (contactRef.current) {
+			gsap.from(contactRef.current, {
+				opacity: 0,
+				y: 50,
+				duration: 1,
+				ease: 'power2.out',
+				scrollTrigger: {
+					trigger: contactRef.current,
+					start: 'top center',
+					end: 'top 30%',
+					toggleActions: 'play none none reverse',
+				},
+			})
+		}
 
-		tl.to(cardRef.current, {
-			x: -1000,
-			opacity: 0,
-			duration: 5,
-			onStart: () => {
-				gsap.set(cardRef.current, { zIndex: 10 })
-			},
-			onReverseComplete: () => {
-				gsap.set(cardRef.current, { zIndex: 20 })
-			},
-		})
-			.to(
-				carouselRef.current,
-				{
-					x: 1000,
-					opacity: 0,
-					duration: 5,
-					onStart: () => {
-						gsap.set(carouselRef.current, { zIndex: 10 })
-					},
-					onReverseComplete: () => {
-						gsap.set(carouselRef.current, { zIndex: 20 })
-					},
+		// Calculo de scroll horizontal
+		if (projectsRef.current && cardsRef.current) {
+			const projectsSection = projectsRef.current
+			const cardsContainer = cardsRef.current
+			// Calcula el ancho total de las cards, incluyendo gaps y padding
+			const totalCardsWidth = cardsContainer.scrollWidth
+			const visibleContainerWidth = projectsSection.offsetWidth
+			const scrollDistance = totalCardsWidth - visibleContainerWidth
+
+			// Animación para cards
+
+			gsap.from('.cards', {
+				opacity: 0,
+				duration: 0.5,
+				ease: 'power2.out',
+				scrollTrigger: {
+					trigger: projectsSection,
+					start: 'top center',
+					end: 'bottom top',
 				},
-				0,
-			)
-			.to(
-				projectsRef.current,
-				{
-					opacity: 1,
-					duration: 2,
-					onStart: () => {
-						gsap.set(projectsRef.current, { zIndex: 30 })
-					},
-					onComplete: () => {
-						gsap.set(projectsRef.current, { zIndex: 20 })
-					},
-					onReverseComplete: () => {
-						gsap.set(projectsRef.current, { zIndex: 0 })
-					},
+			})
+
+			// Animación scroll horizontal para proyectos
+			gsap.to('.titulo-experiencias', {
+				x: () => `-${scrollDistance}`,
+				ease: 'none',
+				scrollTrigger: {
+					trigger: projectsSection,
+					start: 'top top',
+					end: () => `+=${scrollDistance}`,
+					scrub: 4,
 				},
-				'-=3',
-			)
+			})
+			if (scrollDistance > 0) {
+				gsap.to(cardsContainer, {
+					x: -scrollDistance,
+					ease: 'none',
+					scrollTrigger: {
+						trigger: projectsSection,
+						start: 'top top',
+						end: () => `+=${scrollDistance}`,
+						pin: true,
+						scrub: 4,
+						anticipatePin: 1,
+						invalidateOnRefresh: true,
+
+						// markers: true,
+					},
+				})
+			}
+		}
+
+		return cleanup
 	}, [])
 
 	return (
-		<div ref={containerRef} className='h-[170vh] relative'>
+		<div ref={scrollRef}>
 			{/* Sección principal */}
-			<div className='flex flex-col lg:flex-row p-4 lg:p-8 h-[100vh] absolute items-center lg:justify-evenly z-10 w-full'>
+			<section
+				ref={heroRef}
+				data-bgcolor='#27272a'
+				className='flex flex-col justify-center items-center p-4 lg:p-8 min-h-screen w-full overflow-hidden'
+			>
+				{/* <div className='max-w-xs lg:max-w-lg text-center justify-center'> */}
 				<div
-					ref={cardRef}
-					className='max-w-xs lg:max-w-lg text-center justify-center flex-col p-2 overflow-hidden'
+					ref={profileRef}
+					className='h-[550px] justify-evenly w-full items-center flex'
 				>
-					<div className='h-[550px] items-center flex'>
-						<img
-							src='imagenes/foto.png'
-							alt='foto'
-							className='h-36 lg:h-48 rounded-full mt-4 lg:mt-0'
-						/>
-						<div className='pt-4 lg:pt-6 text-center space-y-2 lg:space-y-4'>
-							<p className='text-description text-sm md:text-base lg:text-xl font-roboto'>
-								Transformo ideas en experiencias digitales. Como Full Stack
-								Developer, combino React, Node.js y la nube para crear
-								aplicaciones modernas, eficientes y enfocadas en el usuario. Me
-								apasiona aprender, colaborar y construir tecnología con
-								propósito.
-							</p>
-						</div>
+					<img
+						src='imagenes/foto.png'
+						alt='foto'
+						className='h-36 lg:h-[300px] rounded-full mt-4 lg:mt-0'
+					/>
+					<div className='pt-4 lg:pt-6 text-center space-y-2 lg:space-y-4 lg:w-[400px]'>
+						<p className='text-description text-sm md:text-base lg:text-4xl font-nunito'>
+							Transformo ideas en experiencias digitales. Como Full Stack
+							Developer, creo aplicaciones modernas, eficientes y enfocadas en
+							el usuario. Me apasiona aprender, colaborar y construir tecnología
+							con propósito.
+						</p>
+						{/* </div> */}
 					</div>
 				</div>
 
-				<div ref={carouselRef} className='mt-4 lg:mt-0 overflow-hidden'>
+				{/* <div ref={carouselRef} className='mt-4 lg:mt-0'>
 					<Carousel />
+				</div> */}
+			</section>
+
+			{/* Sección de Proyectos con scroll horizontal pinneado */}
+			<section
+				ref={projectsRef}
+				data-bgcolor='#000'
+				className='w-full min-h-screen  flex flex-col '
+			>
+				<h1 className='titulo-experiencias text-center text-5xl mb-8 mt-20'>
+					Experiencias
+				</h1>
+				{/* Este contenedor tiene overflow-hidden para ocultar las cards fuera de vista */}
+				<div ref={containerRef} className='w-full overflow-hidden'>
+					{/* Este es el contenedor FLEX que se moverá horizontalmente */}
+					<div ref={cardsRef} className='flex gap-52 px-4 relative z-50'>
+						<div className='flex-shrink-0 w-[300px] md:w-[400px] lg:w-[300px]' />
+						{projectsData.map((project, index) => (
+							<div
+								key={index}
+								className='cards flex-shrink-0'
+								// onClick={() => setSelectedId(project.id)}
+							>
+								<Cards {...project} />
+							</div>
+						))}
+						<div className='flex-shrink-0 w-[300px] md:w-[400px] lg:w-[500px]' />
+					</div>
 				</div>
-			</div>
-			<div ref={projectsRef} className='absolute w-full top-20 opacity-0'>
-				<Projects />
-			</div>
+			</section>
+			<section
+				ref={contactRef}
+				data-bgcolor='#27272a'
+				className='w-full min-h-screen  flex flex-col contact '
+			>
+				<Contact />
+			</section>
+
+			{/* Espacio extra para permitir el scroll vertical que controla la animación horizontal */}
+			{/* {projectsRef.current &&
+				cardsRef.current &&
+				projectsRef.current.offsetWidth < cardsRef.current.scrollWidth && (
+					<div
+						style={{
+							height: `${
+								cardsRef.current.scrollWidth - projectsRef.current.offsetWidth
+							}px`,
+						}}
+					></div>
+				)} */}
+
+			{/* Modal de AnimatePresence */}
+			{/* <AnimatePresence>
+				{selectedId && (
+					<motion.div
+						key={selectedId}
+						layoutId={selectedId}
+						initial={{ opacity: 0 }}
+						animate={{ opacity: 1 }}
+						exit={{ opacity: 0 }}
+						className='fixed top-0 right-0 z-10 flex items-center justify-center w-full h-screen '
+						onClick={() => setSelectedId(null)}
+					>
+						<div className='text-white text-2xl'>
+							Contenido del Proyecto: {selectedId}
+						</div>
+					</motion.div>
+				)}
+			</AnimatePresence> */}
 		</div>
 	)
 }

@@ -8,7 +8,8 @@ export default {
     extend: {
       fontFamily: {
         roboto: ['Roboto Slab'],
-        special: ['Special Elite']
+        special: ['Special Elite'],
+        nunito: ['Nunito']
       },
      minHeight: {
         "10v": "10vh",
