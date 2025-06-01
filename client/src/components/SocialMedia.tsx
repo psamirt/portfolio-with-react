@@ -1,31 +1,16 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import {
 	FaGithub,
 	FaLinkedin,
 	FaWhatsapp,
 	FaPlus,
-	FaSun,
 	FaMoon,
 } from 'react-icons/fa'
 import { motion } from 'framer-motion'
 
 function SocialMedia() {
 	const [open, setOpen] = useState(false)
-	const [theme, setTheme] = useState('dark')
 
-	useEffect(() => {
-		// Verificar el tema guardado en localStorage
-		const savedTheme = localStorage.getItem('theme') || 'dark'
-		setTheme(savedTheme)
-		document.documentElement.classList.toggle('dark', savedTheme === 'dark')
-	}, [])
-
-	const toggleTheme = () => {
-		const newTheme = theme === 'dark' ? 'light' : 'dark'
-		setTheme(newTheme)
-		localStorage.setItem('theme', newTheme)
-		document.documentElement.classList.toggle('dark', newTheme === 'dark')
-	}
 
 	return (
 		<div className='fixed bottom-6 right-6 flex flex-col items-center z-50'>
@@ -74,10 +59,9 @@ function SocialMedia() {
 							initial={{ scale: 0 }}
 							animate={{ scale: 1 }}
 							transition={{ delay: 0.4 }}
-							onClick={toggleTheme}
 							className='bg-yellow-500 dark:bg-purple-600 p-3 rounded-full text-white shadow-md hover:scale-110 transition-transform duration-200'
 						>
-							{theme === 'dark' ? <FaSun size={20} /> : <FaMoon size={20} />}
+							 <FaMoon size={20} />
 						</motion.button>
 					</>
 				)}

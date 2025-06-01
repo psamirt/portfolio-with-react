@@ -1,5 +1,5 @@
 import * as Icons from 'react-icons/bi'
-import { SiNextdotjs, SiSass, SiReactquery } from 'react-icons/si'
+import { SiNextdotjs, SiSass, SiReactquery, SiExpress } from 'react-icons/si'
 
 interface CardProps {
 	title: string
@@ -34,6 +34,8 @@ const iconMap = {
 	SiNextdotjs: SiNextdotjs,
 	SiSass: SiSass,
 	SiReactquery: SiReactquery,
+	SiExpress: SiExpress,
+	BiLogoNodejs: Icons.BiLogoNodejs,
 }
 
 const Cards = ({
@@ -46,7 +48,7 @@ const Cards = ({
 	github,
 }: CardProps): JSX.Element => {
 	return (
-		<div className='flex flex-col items-center bg-zinc-800/50 backdrop-blur-sm rounded-xl p-4 shadow-lg hover:shadow-xl transition-all duration-300'>
+		<div className='flex flex-col items-center bg-zinc-950 backdrop-blur-sm rounded-xl p-4 shadow-lg hover:shadow-xl transition-all duration-300'>
 			<div className='w-full overflow-hidden rounded-lg mb-4'>
 				{image.endsWith('.mp4') ? (
 					<video
@@ -58,14 +60,14 @@ const Cards = ({
 						className='w-full h-48 md:h-56 lg:h-64 object-cover'
 					/>
 				) : (
-					<img 
-						src={image} 
-						alt={title} 
+					<img
+						src={image}
+						alt={title}
 						className='w-full h-48 md:h-56 lg:h-64 object-cover'
 					/>
 				)}
 			</div>
-			
+
 			<div className='w-full space-y-3'>
 				<h1 className='text-lg md:text-xl font-bold text-center font-roboto'>
 					{title}
@@ -73,7 +75,7 @@ const Cards = ({
 				<p className='text-sm md:text-base text-gray-300 text-center line-clamp-2'>
 					{description}
 				</p>
-				
+
 				<div className='py-2'>
 					<h3 className='text-sm md:text-base font-semibold text-center font-roboto mb-2'>
 						Tecnologías
@@ -83,10 +85,7 @@ const Cards = ({
 							const IconComponent = iconMap[tech.icon as keyof typeof iconMap]
 							return (
 								<li key={index} className='flex flex-col items-center'>
-									<IconComponent
-										size={tech.size}
-										className={tech.className}
-									/>
+									<IconComponent size={tech.size} className={tech.className} />
 									<span className='text-xs md:text-sm mt-1'>{tech.name}</span>
 								</li>
 							)

@@ -191,5 +191,87 @@
 			}
 		],
 		"github": "https://github.com/psamirt/proceso-seleccion"
+	},
+	{
+		"id": "6",
+		"image": "imagenes/crucigrama.png",
+		"title": "Crucigrama",
+		"description": "Crucigrama interactivo con lógica de juego y temporizador.",
+		"link": "https://prueba-perubn.vercel.app/",
+		"linkText": "Ver en GitHub",
+		"technologies": [
+			{
+				"icon": "BiLogoReact",
+				"name": "React",
+				"size": 35,
+				"className": "text-blue-400"
+			},
+			{
+				"icon": "BiSolidFileCss",
+				"name": "CSS",
+				"size": 35,
+				"className": "text-gray-600"
+			},
+			{
+				"icon": "SiSass",
+				"name": "SASS",
+				"size": 35,
+				"className": "text-red-600"
+			}
+		],
+		"github": "https://github.com/psamirt/prueba-perubn"
+	},
+	{
+		"id": "7",
+		"image": "imagenes/iderma.png",
+		"title": "Iderma Capilar",
+		"description": "Aplicación web dedicada diseñada y desarrollada para la clínica de la belleza Iderma Capilar",
+		"link": "https://test.idermacapilar.pe",
+		"linkText": "Ver en GitHub",
+		"technologies": [
+			{
+				"icon": "BiLogoReact",
+				"name": "React",
+				"size": 35,
+				"className": "text-blue-400"
+			},
+			{
+				"icon": "BiLogoNodejs",
+				"name": "Gsap",
+				"size": 35,
+				"className": "text-green-600"
+			},
+			{
+				"icon": "BiSolidFileCss",
+				"name": "CSS",
+				"size": 35,
+				"className": "text-gray-600"
+			},
+			{
+				"icon": "BiLogoTailwindCss",
+				"name": "Tailwind",
+				"size": 35,
+				"className": "text-teal-400"
+			},
+			{
+				"icon": "BiLogoPostgresql",
+				"name": "PostgreSQL",
+				"size": 35,
+				"className": "text-green-700"
+			},
+			{
+				"icon": "SiExpress",
+				"name": "Express.js",
+				"size": 35,
+				"className": "text-gray-800"
+			},
+			{
+				"icon": "BiLogoNodejs",
+				"name": "Node.js",
+				"size": 35,
+				"className": "text-green-600"
+			}
+		],
+		"github": "https://github.com/orgs/Iderma-Capilar/repositories"
 	}
 ]
