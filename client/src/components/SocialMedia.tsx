@@ -4,13 +4,12 @@ import {
 	FaLinkedin,
 	FaWhatsapp,
 	FaPlus,
-	FaMoon,
+	FaDownload,
 } from 'react-icons/fa'
 import { motion } from 'framer-motion'
 
 function SocialMedia() {
 	const [open, setOpen] = useState(false)
-
 
 	return (
 		<div className='fixed bottom-6 right-6 flex flex-col items-center z-50'>
@@ -55,14 +54,16 @@ function SocialMedia() {
 						>
 							<FaLinkedin size={20} />
 						</motion.a>
-						<motion.button
+						<motion.a
 							initial={{ scale: 0 }}
 							animate={{ scale: 1 }}
 							transition={{ delay: 0.4 }}
+							href='/CV.Samir.pdf'
+							download='CV-Paolo-Tello.pdf'
 							className='bg-yellow-500 dark:bg-purple-600 p-3 rounded-full text-white shadow-md hover:scale-110 transition-transform duration-200'
 						>
-							 <FaMoon size={20} />
-						</motion.button>
+							<FaDownload size={20} />
+						</motion.a>
 					</>
 				)}
 			</motion.div>
@@ -76,7 +77,9 @@ function SocialMedia() {
 			>
 				<FaPlus
 					size={24}
-					className={`transition-transform duration-300 ${open ? 'rotate-45' : ''}`}
+					className={`transition-transform duration-300 ${
+						open ? 'rotate-45' : ''
+					}`}
 				/>
 			</motion.button>
 		</div>

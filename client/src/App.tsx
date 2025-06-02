@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom'
 import Home from './pages/Home/Home'
-import Navbar from './components/Navbar'
+// import Navbar from './components/Navbar'
 import Contact from './pages/contact/Contact'
 import SocialMedia from './components/SocialMedia'
 import gsap from 'gsap'
@@ -21,10 +21,10 @@ const App = (): JSX.Element => {
 	return (
 		<div className='min-h-screen'>
 			<SocialMedia />
-			<Navbar />
+			{/* <Navbar /> */}
 			{/* <Background /> */}
 			<div id='smooth-wrapper'>
-				<main id='smooth-content' className='pt-16'>
+				<main id='smooth-content'>
 					<Routes>
 						<Route path='/' element={<Home />} />
 						<Route path='/contact' element={<Contact />} />

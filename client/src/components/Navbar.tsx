@@ -31,7 +31,7 @@ const Navbar: React.FC = () => {
 		}
 	}, [])
 	return (
-		<div className='max-w-[1640px] w-full mx-auto flex justify-between items-center p-4  top-0 left-0 right-0  z-[100] h-16'>
+		<div className='max-w-[1640px] w-full mx-auto flex justify-center items-center p-4  top-0 left-0 right-0  z-[100] h-16'>
 			{/* left side */}
 
 			<div className='flex items-center'>
@@ -58,18 +58,6 @@ const Navbar: React.FC = () => {
 					<p> Full stack Developer</p>
 				</div>
 			</div>
-
-			{/* download button */}
-			<a
-				href='CV-Samir.pdf'
-				download
-				className='bg-slate-50 text-black hidden md:flex items-center px-3 rounded-full hover:bg-slate-300 hover:translate-y-[0.5px]'
-			>
-				<BsDownload size={20} className='mr-2' />
-				CV
-			</a>
-
-			{/* side drawer menu */}
 			<div
 				className={
 					nav
